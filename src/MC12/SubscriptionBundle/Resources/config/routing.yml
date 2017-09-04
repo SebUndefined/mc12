@@ -1,0 +1,3 @@
+mc12_subscription_homepage:
+    path:     /
+    defaults: { _controller: MC12SubscriptionBundle:Default:index }

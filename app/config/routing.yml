@@ -1,3 +1,7 @@
+mc12_subscription:
+    resource: "@MC12SubscriptionBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
