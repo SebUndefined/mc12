@@ -1,0 +1,62 @@
+{% extends "MC12SubscriptionBundle:Common:layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body %}
+
+    <table>
+        <thead>
+            <tr><th>
+                    Nom
+                </th>
+                <th>
+                    Date début
+                </th>
+                <th>
+                    Date fin
+                </th>
+                <th>
+                    Inscription ouverte
+                </th>
+                <th>
+                    Place Max
+                </th>
+                <th>
+                    Place restance
+                </th>
+                <th>
+                    S'inscrire !
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for race in races %}
+                <tr>
+                    <td>
+                        {{ race.name }}
+                    </td>
+                    <td>
+                        {{ race.dateBegin |date('d/m/Y') }}
+                    </td>
+                    <td>
+                        {{ race.dateEnd |date('d/m/Y') }}
+                    </td>
+                    <td>
+                        {{ race.open }}
+                    </td>
+                    <td>
+                        {{ race.competitorSize }}
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <a href="{{ path('mc12_subscription_pilot', {'id': race.id}) }}"><i class="material-icons">arrow_forward</i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <li>Pas d'utilisateur trouvé.</li>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

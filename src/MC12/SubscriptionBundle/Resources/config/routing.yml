@@ -1,3 +1,10 @@
 mc12_subscription_homepage:
-    path:     /
-    defaults: { _controller: MC12SubscriptionBundle:Default:index }
+    path:     /subscribe
+    defaults: { _controller: MC12SubscriptionBundle:Subscription:index }
+
+mc12_subscription_pilot:
+    path:    /subscribe/{id}
+    defaults:
+        _controller: MC12SubscriptionBundle:Subscription:pilot
+    requirements:
+        id: \d+
