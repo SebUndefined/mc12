@@ -38,25 +38,17 @@ class Motorbike
     /**
      * @var string
      *
-     * @ORM\Column(name="insuranceCompany", type="string", length=255)
-     */
-    private $insuranceCompany;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="insuranceNumber", type="string", length=255)
-     */
-    private $insuranceNumber;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="registrationNumber", type="string", length=50)
      */
     private $registrationNumber;
 
 
+    /**
+     * @var string
+     *
+     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Insurance", cascade={"persist"})
+     */
+    private $insurance;
     /**
      * Get id
      *
@@ -139,29 +131,6 @@ class Motorbike
         return $this->insuranceCompany;
     }
 
-    /**
-     * Set insuranceNumber
-     *
-     * @param string $insuranceNumber
-     *
-     * @return Motorbike
-     */
-    public function setInsuranceNumber($insuranceNumber)
-    {
-        $this->insuranceNumber = $insuranceNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get insuranceNumber
-     *
-     * @return string
-     */
-    public function getInsuranceNumber()
-    {
-        return $this->insuranceNumber;
-    }
 
     /**
      * Set registrationNumber
@@ -186,5 +155,24 @@ class Motorbike
     {
         return $this->registrationNumber;
     }
+
+    /**
+     * @return string
+     */
+    public function getInsurance()
+    {
+        return $this->insurance;
+    }
+
+    /**
+     * @param string $insurance
+     */
+    public function setInsurance($insurance)
+    {
+        $this->insurance = $insurance;
+    }
+
+
+
 }
 

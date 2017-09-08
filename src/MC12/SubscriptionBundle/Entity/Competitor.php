@@ -90,6 +90,12 @@ class Competitor
      * @ORM\Column(name="phone", type="string", length=50)
      */
     private $phone;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50, nullable=false)
+     */
+    private $email;
 
     /**
      * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Licence", cascade={"persist"})
@@ -353,7 +359,28 @@ class Competitor
     public function getPhone()
     {
         return $this->phone;
-    }/**
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+
+
+
+    /**
      * @return mixed
      */
     public function getLicence()

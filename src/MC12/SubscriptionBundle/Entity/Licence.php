@@ -25,7 +25,7 @@ class Licence
      */
     private $id;
     /**
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255, nullable=false)
      */
     private $type;
 
@@ -63,6 +63,9 @@ class Licence
      */
     public function setType($type)
     {
+        if (!in_array($type, LicenceTypeEnum::getAvailableTypes())) {
+            throw new \InvalidArgumentException("Invalid type");
+        }
         $this->type = $type;
     }
 

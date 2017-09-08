@@ -5,6 +5,7 @@ namespace MC12\SubscriptionBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,7 +28,10 @@ class CompetitorType extends AbstractType
             ->add('country', CountryType::class)
             ->add('nationality', CountryType::class)
             ->add('phone', TextType::class)
-            ->add('licence', TextType::class);
+            ->add('email', EmailType::class)
+            ->add('licence', LicenceType::class)
+            ->add('motorbike', MotorbikeType::class)
+            ->add('club', ClubType::class);
     }
     
     /**
