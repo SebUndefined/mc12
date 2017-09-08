@@ -20,7 +20,7 @@ class CompetitorType extends AbstractType
         $builder
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
-            ->add('birthDate', BirthdayType::class)
+            ->add('birthDate', TextType::class)
             ->add('adressComp', TextType::class)
             ->add('address', TextType::class)
             ->add('postalCode', TextType::class)
@@ -31,7 +31,8 @@ class CompetitorType extends AbstractType
             ->add('email', EmailType::class)
             ->add('licence', LicenceType::class)
             ->add('motorbike', MotorbikeType::class)
-            ->add('club', ClubType::class);
+            ->add('club', ClubType::class)
+            ->add('driveLicence', DriveLicenceType::class);
     }
     
     /**

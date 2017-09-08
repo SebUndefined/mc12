@@ -110,6 +110,10 @@ class Competitor
      * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Club", cascade={"persist"})
      */
     private $club;
+    /**
+     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\DriveLicence", cascade={"persist"})
+     */
+    private $driveLicence;
 
     /**
      * Get id
@@ -425,6 +429,23 @@ class Competitor
     {
         $this->club = $club;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDriveLicence()
+    {
+        return $this->driveLicence;
+    }
+
+    /**
+     * @param mixed $driveLicence
+     */
+    public function setDriveLicence($driveLicence)
+    {
+        $this->driveLicence = $driveLicence;
+    }
+
 
 
 

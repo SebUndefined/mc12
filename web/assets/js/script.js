@@ -3,4 +3,13 @@
  */
 $(document).ready(function() {
     $('select').material_select();
+    $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 150, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false,
+        format: 'dd-mm-yyyy'
+    });
 });
