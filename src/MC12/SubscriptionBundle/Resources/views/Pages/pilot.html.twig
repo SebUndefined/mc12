@@ -3,50 +3,235 @@
 {% block title %}{{ parent() }} - Pilot {% endblock %}
 
 {% block body %}
-    {{ form_start(form, {'attr': {'class': 'col s12'}}) }}
 
-    {# Les erreurs générales du formulaire. #}
-    {{ form_errors(form) }}
-    <div class="row">
-        <h3>Pilote</h3>
-        <div class="row">
-            <h5>Informations générales</h5>
-            <div class="col input-field l6 m6">
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.firstName) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.firstName, {'attr': {'class': 'validate'}}) }}
-                {# Génération du label. #}
-                {{ form_label(form.firstName, "Prénom") }}
+    {{ form_start(form) }}
+    <ul class="stepper">
+        <li class="step active">
+            <div class="step-title waves-effect" data-step-label="Informations générales">Pilote</div>
+            <div class="step-content">
+                <div class="row">
+                    <div class="col input-field l6 m6">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.firstName) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.firstName, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.firstName, "Prénom") }}
+                    </div>
+                    <div class="col input-field l6 m6">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.lastName) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.lastName, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.lastName, "Nom") }}
+                    </div>
+                    <div class="col l6 m6">
+                        {# Génération du label. #}
+                        {{ form_label(form.birthDate, "Date de naissance") }}
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.birthDate) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.birthDate) }}
+                    </div>
+                    <div class="col l6 m6">
+                        {# Génération du label. #}
+                        {{ form_label(form.nationality, "Nationalité") }}
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.nationality) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.nationality, {'attr': {'class': 'validate'}}) }}
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                </div>
             </div>
-            <div class="col input-field l6 m6">
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.lastName) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.lastName, {'attr': {'class': 'validate'}}) }}
-                {# Génération du label. #}
-                {{ form_label(form.lastName, "Nom") }}
+        </li>
+        <li class="step">
+            <div class="step-title waves-effect" data-step-label="Informations de contact">Pilote</div>
+            <div class="step-content">
+                <div class="row">
+                    <div class="col input-field l12">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.address) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.address, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.address, "Adresse") }}
+                    </div>
+                    <div class="col input-field l12">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.adressComp) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.adressComp, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.adressComp, "Complément") }}
+                    </div>
+                    <div class="col input-field l4">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.postalCode) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.postalCode, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.postalCode, "Code Postal") }}
+                    </div>
+                    <div class="col input-field l4">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.city) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.city, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.city, "Ville") }}
+                    </div>
+                    <div class="col input-field l4">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.country) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.country, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.country, "Pays") }}
+                    </div>
+                    <div class="col input-field l6 m6">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.email) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.email, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.email, "Email") }}
+                    </div>
+                    <div class="col input-field l6 m6">
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.phone) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.phone, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.phone, "Tel") }}
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                    <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                </div>
             </div>
-            <div class="col l6 m6">
-                {# Génération du label. #}
-                {{ form_label(form.birthDate, "Date de naissance") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.birthDate) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.birthDate, {'attr': {'class': 'validate datepicker'}}) }}
+        </li>
+        <li class="step">
+            <div class="step-title waves-effect" data-step-label="Moto et assurance">Véhicule</div>
+            <div class="step-content">
+                <div class="row">
+                    <div class="col m6">
+                        <h5>Description</h5>
+                        <div class="col input-field l12">
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.motorbike.brand) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.motorbike.brand, {'attr': {'class': 'validate'}}) }}
+                            {# Génération du label. #}
+                            {{ form_label(form.motorbike.brand, "Marque") }}
+                        </div>
+                        <div class="col input-field l12">
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.motorbike.cylinder) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.motorbike.cylinder, {'attr': {'class': 'validate'}}) }}
+                            {# Génération du label. #}
+                            {{ form_label(form.motorbike.cylinder, "Cylindrée") }}
+                        </div>
+                        <div class="col input-field l12">
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.motorbike.registrationNumber) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.motorbike.registrationNumber, {'attr': {'class': 'validate'}}) }}
+                            {# Génération du label. #}
+                            {{ form_label(form.motorbike.registrationNumber, "Immatriculation") }}
+                        </div>
+                    </div>
+                    <div class="col m6">
+                        <h5>Moto</h5>
+                        <div class="col input-field l12">
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.motorbike.insurance.insuranceCompanyName) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.motorbike.insurance.insuranceCompanyName, {'attr': {'class': 'validate'}}) }}
+                            {# Génération du label. #}
+                            {{ form_label(form.motorbike.insurance.insuranceCompanyName, "Nom") }}
+                        </div>
+                        <div class="col input-field l12">
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.motorbike.insurance.insuranceRegistrationNumber) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.motorbike.insurance.insuranceRegistrationNumber, {'attr': {'class': 'validate'}}) }}
+                            {# Génération du label. #}
+                            {{ form_label(form.motorbike.insurance.insuranceRegistrationNumber, "Numéro de police") }}
+                        </div>
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                    <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                </div>
             </div>
-            <div class="col l6 m6">
-                {# Génération du label. #}
-                {{ form_label(form.nationality, "Nationalité") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.nationality) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.nationality, {'attr': {'class': 'validate'}}) }}
+        </li>
+        <li class="step">
+            <div class="step-title waves-effect">Permis et licence</div>
+            <div class="step-content">
+                <div class="row">
+                    <div class="col l6">
+                        <h5>Licence</h5>
+                        <div class="col input-field l12">
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.licence.type) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.licence.type, {'attr': {'class': 'validate'}}) }}
+                            {# Génération du label. #}
+                            {{ form_label(form.licence.type, "Type") }}
+                        </div>
+                        <div class="col input-field l12">
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.licence.number) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.licence.number, {'attr': {'class': 'validate'}}) }}
+                            {# Génération du label. #}
+                            {{ form_label(form.licence.number, "Numéro") }}
+                        </div>
+                    </div>
+                    <div class="col l6">
+                        <h5>Permis</h5>
+                        <div class="col l12">
+                            {# Génération du label. #}
+                            {{ form_label(form.driveLicence.category, "Catégorie") }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.driveLicence.category) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.driveLicence.category, {'attr': {'class': 'validate'}}) }}
+                        </div>
+                        <div class="col l12">
+                            {# Génération du label. #}
+                            {{ form_label(form.driveLicence.deliveryDate, "Date d'obtention") }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.driveLicence.deliveryDate) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.driveLicence.deliveryDate, {'attr': {'class': 'validate datepicker'}}) }}
+                        </div>
+                        <div class="col l12">
+                            {# Génération du label. #}
+                            {{ form_label(form.driveLicence.number, "Numéro") }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.driveLicence.number) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.driveLicence.number, {'attr': {'class': 'validate'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                    <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col l6">
-                <h5>Club</h5>
+        </li>
+        <li class="step">
+            <div class="step-title waves-effect">Club</div>
+            <div class="step-content">
                 <div class="row">
                     <div class="col l12">
                         {# Génération du label. #}
@@ -72,182 +257,14 @@
                         {# Génération de l'input. #}
                         {{ form_widget(form.club.country, {'attr': {'class': 'validate'}}) }}
                     </div>
-
                 </div>
-
-            </div>
-            <div class="col l6">
-                <h5>Permis de conduire</h5>
-                <div class="row">
-                    <div class="col l12">
-                        {# Génération du label. #}
-                        {{ form_label(form.driveLicence.category, "Catégorie") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.driveLicence.category) }}
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.driveLicence.category, {'attr': {'class': 'validate'}}) }}
-                    </div>
-                    <div class="col l12">
-                        {# Génération du label. #}
-                        {{ form_label(form.driveLicence.deliveryDate, "Date d'obtention") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.driveLicence.deliveryDate) }}
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.driveLicence.deliveryDate, {'attr': {'class': 'validate datepicker'}}) }}
-                    </div>
-                    <div class="col l12">
-                        {# Génération du label. #}
-                        {{ form_label(form.driveLicence.number, "Numéro") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.driveLicence.number) }}
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.driveLicence.number, {'attr': {'class': 'validate'}}) }}
-                    </div>
-
+                <div class="step-actions">
+                    <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                    <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                 </div>
-
             </div>
-
-        </div>
-    </div>
-
-
-    <div class="row">
-        <h3>Contact</h3>
-        <div class="col input-field l12">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.address) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.address, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.address, "Adresse") }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col input-field l12">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.adressComp) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.adressComp, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.adressComp, "Complément") }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col input-field l4">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.postalCode) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.postalCode, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.postalCode, "Code Postal") }}
-        </div>
-        <div class="col input-field l4">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.city) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.city, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.city, "Ville") }}
-        </div>
-        <div class="col input-field l4">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.country) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.country, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.country, "Pays") }}
-        </div>
-        <div class="col input-field l6 m6">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.email) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.email, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.email, "Email") }}
-        </div>
-        <div class="col input-field l6 m6">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.phone) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.phone, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.phone, "Tel") }}
-        </div>
-    </div>
-    <div class="row">
-        <h3>Licence</h3>
-        <div class="col input-field l6">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.licence.type) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.licence.type, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.licence.type, "Type") }}
-        </div>
-        <div class="col input-field l6">
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.licence.number) }}
-            {# Génération de l'input. #}
-            {{ form_widget(form.licence.number, {'attr': {'class': 'validate'}}) }}
-            {# Génération du label. #}
-            {{ form_label(form.licence.number, "Numéro") }}
-        </div>
-    </div>
-    <div class="row">
-        <h3>Moto</h3>
-        <div class="col l6">
-            <h5>Description</h5>
-            <div class="col input-field l12">
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.motorbike.brand) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.motorbike.brand, {'attr': {'class': 'validate'}}) }}
-                {# Génération du label. #}
-                {{ form_label(form.motorbike.brand, "Marque") }}
-            </div>
-            <div class="col input-field l12">
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.motorbike.cylinder) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.motorbike.cylinder, {'attr': {'class': 'validate'}}) }}
-                {# Génération du label. #}
-                {{ form_label(form.motorbike.cylinder, "Cylindrée") }}
-            </div>
-            <div class="col input-field l12">
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.motorbike.registrationNumber) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.motorbike.registrationNumber, {'attr': {'class': 'validate'}}) }}
-                {# Génération du label. #}
-                {{ form_label(form.motorbike.registrationNumber, "Immatriculation") }}
-            </div>
-        </div>
-        <div class="col l6">
-            <h5>Assurance</h5>
-            <div class="col input-field l12">
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.motorbike.insurance.insuranceCompanyName) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.motorbike.insurance.insuranceCompanyName, {'attr': {'class': 'validate'}}) }}
-                {# Génération du label. #}
-                {{ form_label(form.motorbike.insurance.insuranceCompanyName, "Nom") }}
-            </div>
-            <div class="col input-field l12">
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.motorbike.insurance.insuranceRegistrationNumber) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.motorbike.insurance.insuranceRegistrationNumber, {'attr': {'class': 'validate'}}) }}
-                {# Génération du label. #}
-                {{ form_label(form.motorbike.insurance.insuranceRegistrationNumber, "Numéro de police") }}
-            </div>
-        </div>
-        <div class="col input-field l6">
-
-        </div>
-    </div>
-
-
+        </li>
+    </ul>
     {{ form_end(form) }}
 
 {% endblock %}

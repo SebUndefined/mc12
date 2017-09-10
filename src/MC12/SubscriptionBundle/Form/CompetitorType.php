@@ -5,6 +5,7 @@ namespace MC12\SubscriptionBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +21,13 @@ class CompetitorType extends AbstractType
         $builder
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
-            ->add('birthDate', TextType::class)
+            ->add('birthDate', DateType::class, array(
+                'attr' => ['class' => 'datepicker'],
+                'format' => 'dd/MM/yyyy',
+                'input' => 'datetime',
+                'html5' => false,
+                'widget' => 'single_text',
+            ))
             ->add('adressComp', TextType::class)
             ->add('address', TextType::class)
             ->add('postalCode', TextType::class)
