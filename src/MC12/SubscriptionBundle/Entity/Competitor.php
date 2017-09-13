@@ -116,6 +116,10 @@ class Competitor
     private $driveLicence;
 
     /**
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="competitors")
+     */
+    private $category;
+    /**
      * Get id
      *
      * @return int
@@ -445,6 +449,23 @@ class Competitor
     {
         $this->driveLicence = $driveLicence;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
 
 
 

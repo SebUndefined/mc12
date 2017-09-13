@@ -58,9 +58,15 @@ class Race
      */
     private $subscriptions;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="MC12\SubscriptionBundle\Entity\Category", cascade={"persist"})
+     */
+    private $categories;
+
     public function __construct()
     {
         $this->subscriptions = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
     /**
      * Get id
@@ -190,6 +196,30 @@ class Race
     public function setSubscriptions($subscriptions)
     {
         $this->subscriptions = $subscriptions;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function addCategory(Category $category)
+    {
+        $this->categories[] = $category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function removeCategory(Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 
 

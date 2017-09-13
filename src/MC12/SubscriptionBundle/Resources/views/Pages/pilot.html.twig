@@ -12,35 +12,35 @@
                 <div class="row">
                     <div class="col input-field l6 m6">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.firstName) }}
+                        {{ form_errors(form.competitor.firstName) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.firstName, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.firstName, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.firstName, "Prénom") }}
+                        {{ form_label(form.competitor.firstName, "Prénom") }}
                     </div>
                     <div class="col input-field l6 m6">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.lastName) }}
+                        {{ form_errors(form.competitor.lastName) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.lastName, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.lastName, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.lastName, "Nom") }}
+                        {{ form_label(form.competitor.lastName, "Nom") }}
                     </div>
                     <div class="col l6 m6">
                         {# Génération du label. #}
-                        {{ form_label(form.birthDate, "Date de naissance") }}
+                        {{ form_label(form.competitor.birthDate, "Date de naissance") }}
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.birthDate) }}
+                        {{ form_errors(form.competitor.birthDate) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.birthDate) }}
+                        {{ form_widget(form.competitor.birthDate) }}
                     </div>
                     <div class="col l6 m6">
                         {# Génération du label. #}
-                        {{ form_label(form.nationality, "Nationalité") }}
+                        {{ form_label(form.competitor.nationality, "Nationalité") }}
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.nationality) }}
+                        {{ form_errors(form.competitor.nationality) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.nationality, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.nationality, {'attr': {'class': 'validate'}}) }}
                     </div>
                 </div>
                 <div class="step-actions">
@@ -54,59 +54,59 @@
                 <div class="row">
                     <div class="col input-field l12">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.address) }}
+                        {{ form_errors(form.competitor.address) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.address, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.address, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.address, "Adresse") }}
+                        {{ form_label(form.competitor.address, "Adresse") }}
                     </div>
                     <div class="col input-field l12">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.adressComp) }}
+                        {{ form_errors(form.competitor.adressComp) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.adressComp, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.adressComp, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.adressComp, "Complément") }}
+                        {{ form_label(form.competitor.adressComp, "Complément") }}
                     </div>
                     <div class="col input-field l4">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.postalCode) }}
+                        {{ form_errors(form.competitor.postalCode) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.postalCode, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.postalCode, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.postalCode, "Code Postal") }}
+                        {{ form_label(form.competitor.postalCode, "Code Postal") }}
                     </div>
                     <div class="col input-field l4">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.city) }}
+                        {{ form_errors(form.competitor.city) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.city, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.city, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.city, "Ville") }}
+                        {{ form_label(form.competitor.city, "Ville") }}
                     </div>
                     <div class="col input-field l4">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.country) }}
+                        {{ form_errors(form.competitor.country) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.country, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.country, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.country, "Pays") }}
+                        {{ form_label(form.competitor.country, "Pays") }}
                     </div>
                     <div class="col input-field l6 m6">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.email) }}
+                        {{ form_errors(form.competitor.email) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.email, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.email, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.email, "Email") }}
+                        {{ form_label(form.competitor.email, "Email") }}
                     </div>
                     <div class="col input-field l6 m6">
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.phone) }}
+                        {{ form_errors(form.competitor.phone) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.phone, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.phone, {'attr': {'class': 'validate'}}) }}
                         {# Génération du label. #}
-                        {{ form_label(form.phone, "Tel") }}
+                        {{ form_label(form.competitor.phone, "Tel") }}
                     </div>
                 </div>
                 <div class="step-actions">
@@ -123,46 +123,46 @@
                         <h5>Description</h5>
                         <div class="col input-field l12">
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.motorbike.brand) }}
+                            {{ form_errors(form.competitor.motorbike.brand) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.motorbike.brand, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.motorbike.brand, {'attr': {'class': 'validate'}}) }}
                             {# Génération du label. #}
-                            {{ form_label(form.motorbike.brand, "Marque") }}
+                            {{ form_label(form.competitor.motorbike.brand, "Marque") }}
                         </div>
                         <div class="col input-field l12">
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.motorbike.cylinder) }}
+                            {{ form_errors(form.competitor.motorbike.cylinder) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.motorbike.cylinder, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.motorbike.cylinder, {'attr': {'class': 'validate'}}) }}
                             {# Génération du label. #}
-                            {{ form_label(form.motorbike.cylinder, "Cylindrée") }}
+                            {{ form_label(form.competitor.motorbike.cylinder, "Cylindrée") }}
                         </div>
                         <div class="col input-field l12">
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.motorbike.registrationNumber) }}
+                            {{ form_errors(form.competitor.motorbike.registrationNumber) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.motorbike.registrationNumber, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.motorbike.registrationNumber, {'attr': {'class': 'validate'}}) }}
                             {# Génération du label. #}
-                            {{ form_label(form.motorbike.registrationNumber, "Immatriculation") }}
+                            {{ form_label(form.competitor.motorbike.registrationNumber, "Immatriculation") }}
                         </div>
                     </div>
                     <div class="col m6">
                         <h5>Moto</h5>
                         <div class="col input-field l12">
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.motorbike.insurance.insuranceCompanyName) }}
+                            {{ form_errors(form.competitor.motorbike.insurance.insuranceCompanyName) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.motorbike.insurance.insuranceCompanyName, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.motorbike.insurance.insuranceCompanyName, {'attr': {'class': 'validate'}}) }}
                             {# Génération du label. #}
-                            {{ form_label(form.motorbike.insurance.insuranceCompanyName, "Nom") }}
+                            {{ form_label(form.competitor.motorbike.insurance.insuranceCompanyName, "Nom") }}
                         </div>
                         <div class="col input-field l12">
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.motorbike.insurance.insuranceRegistrationNumber) }}
+                            {{ form_errors(form.competitor.motorbike.insurance.insuranceRegistrationNumber) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.motorbike.insurance.insuranceRegistrationNumber, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.motorbike.insurance.insuranceRegistrationNumber, {'attr': {'class': 'validate'}}) }}
                             {# Génération du label. #}
-                            {{ form_label(form.motorbike.insurance.insuranceRegistrationNumber, "Numéro de police") }}
+                            {{ form_label(form.competitor.motorbike.insurance.insuranceRegistrationNumber, "Numéro de police") }}
                         </div>
                     </div>
                 </div>
@@ -180,46 +180,46 @@
                         <h5>Licence</h5>
                         <div class="col input-field l12">
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.licence.type) }}
+                            {{ form_errors(form.competitor.licence.type) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.licence.type, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.licence.type, {'attr': {'class': 'validate'}}) }}
                             {# Génération du label. #}
-                            {{ form_label(form.licence.type, "Type") }}
+                            {{ form_label(form.competitor.licence.type, "Type") }}
                         </div>
                         <div class="col input-field l12">
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.licence.number) }}
+                            {{ form_errors(form.competitor.licence.number) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.licence.number, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.licence.number, {'attr': {'class': 'validate'}}) }}
                             {# Génération du label. #}
-                            {{ form_label(form.licence.number, "Numéro") }}
+                            {{ form_label(form.competitor.licence.number, "Numéro") }}
                         </div>
                     </div>
                     <div class="col l6">
                         <h5>Permis</h5>
                         <div class="col l12">
                             {# Génération du label. #}
-                            {{ form_label(form.driveLicence.category, "Catégorie") }}
+                            {{ form_label(form.competitor.driveLicence.category, "Catégorie") }}
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.driveLicence.category) }}
+                            {{ form_errors(form.competitor.driveLicence.category) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.driveLicence.category, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.driveLicence.category, {'attr': {'class': 'validate'}}) }}
                         </div>
                         <div class="col l12">
                             {# Génération du label. #}
-                            {{ form_label(form.driveLicence.deliveryDate, "Date d'obtention") }}
+                            {{ form_label(form.competitor.driveLicence.deliveryDate, "Date d'obtention") }}
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.driveLicence.deliveryDate) }}
+                            {{ form_errors(form.competitor.driveLicence.deliveryDate) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.driveLicence.deliveryDate, {'attr': {'class': 'validate datepicker'}}) }}
+                            {{ form_widget(form.competitor.driveLicence.deliveryDate, {'attr': {'class': 'validate datepicker'}}) }}
                         </div>
                         <div class="col l12">
                             {# Génération du label. #}
-                            {{ form_label(form.driveLicence.number, "Numéro") }}
+                            {{ form_label(form.competitor.driveLicence.number, "Numéro") }}
                             {# Affichage des erreurs pour ce champ précis. #}
-                            {{ form_errors(form.driveLicence.number) }}
+                            {{ form_errors(form.competitor.driveLicence.number) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.driveLicence.number, {'attr': {'class': 'validate'}}) }}
+                            {{ form_widget(form.competitor.driveLicence.number, {'attr': {'class': 'validate'}}) }}
                         </div>
                     </div>
                 </div>
@@ -235,27 +235,27 @@
                 <div class="row">
                     <div class="col l12">
                         {# Génération du label. #}
-                        {{ form_label(form.club.name, "Nom") }}
+                        {{ form_label(form.competitor.club.name, "Nom") }}
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.club.name) }}
+                        {{ form_errors(form.competitor.club.name) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.club.name, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.club.name, {'attr': {'class': 'validate'}}) }}
                     </div>
                     <div class="col l12">
                         {# Génération du label. #}
-                        {{ form_label(form.club.region, "Région") }}
+                        {{ form_label(form.competitor.club.region, "Région") }}
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.club.region) }}
+                        {{ form_errors(form.competitor.club.region) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.club.region, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.club.region, {'attr': {'class': 'validate'}}) }}
                     </div>
                     <div class="col l12">
                         {# Génération du label. #}
-                        {{ form_label(form.club.country, "Pays") }}
+                        {{ form_label(form.competitor.club.country, "Pays") }}
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.club.country) }}
+                        {{ form_errors(form.competitor.club.country) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.club.country, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.club.country, {'attr': {'class': 'validate'}}) }}
                     </div>
                 </div>
                 <div class="step-actions">

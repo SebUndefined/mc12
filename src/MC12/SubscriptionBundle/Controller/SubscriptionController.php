@@ -3,8 +3,12 @@
 namespace MC12\SubscriptionBundle\Controller;
 
 use MC12\SubscriptionBundle\Entity\Competitor;
+use MC12\SubscriptionBundle\Entity\Race;
+use MC12\SubscriptionBundle\Entity\Subscription;
 use MC12\SubscriptionBundle\Form\CompetitorType;
+use MC12\SubscriptionBundle\Form\SubscriptionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class SubscriptionController extends Controller
 {
@@ -17,15 +21,33 @@ class SubscriptionController extends Controller
         ));
     }
 
-    public function pilotAction()
+    public function pilotAction(Request $request, Race $race, $id)
     {
-        $competitor = new Competitor();
-        $form = $this->get('form.factory')->create(CompetitorType::class, $competitor);
+        $subscription = new Subscription();
+        $subscription->setRace($race);
+        $form = $this->get('form.factory')
+            ->createBuilder(SubscriptionType::class, $subscription)->getForm();
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            $session = $request->getSession();
+            $session->set('subscription', $subscription);
+            return $this->redirectToRoute('mc12_subscription_checkout', array(
+                'id' => $race->getId()
+            ));
+        }
         return $this->render('MC12SubscriptionBundle:Pages:pilot.html.twig', array(
             'form' => $form->createView()
         ));
     }
 
+    public function checkoutAction(Request $request) {
+        $session = $request->getSession();
+        if (!$session->get('subscription')) {
+            return $this->redirectToRoute('/subscribe/');
+        }
+        $subscription = $session->get('subscription');
+        die(var_dump($subscription));
 
+    }
 
 }

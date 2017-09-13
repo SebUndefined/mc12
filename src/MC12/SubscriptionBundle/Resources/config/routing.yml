@@ -5,6 +5,14 @@ mc12_subscription_homepage:
 mc12_subscription_pilot:
     path:    /subscribe/{id}
     defaults:
-        _controller: MC12SubscriptionBundle:Subscription:pilot
+        { _controller: MC12SubscriptionBundle:Subscription:pilot }
     requirements:
         id: \d+
+
+mc12_subscription_checkout:
+    path:   /subscribe/{id}/checkout
+    defaults:
+        { _controller: MC12SubscriptionBundle:Subscription:checkout }
+    requirements:
+        id: \d+
+

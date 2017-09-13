@@ -2,11 +2,13 @@
 
 namespace MC12\SubscriptionBundle\Form;
 
+use function Sodium\add;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,7 +30,9 @@ class CompetitorType extends AbstractType
                 'html5' => false,
                 'widget' => 'single_text',
             ))
-            ->add('adressComp', TextType::class)
+            ->add('adressComp', TextType::class, array(
+                'required' => false
+            ))
             ->add('address', TextType::class)
             ->add('postalCode', TextType::class)
             ->add('city', TextType::class)
@@ -39,7 +43,10 @@ class CompetitorType extends AbstractType
             ->add('licence', LicenceType::class)
             ->add('motorbike', MotorbikeType::class)
             ->add('club', ClubType::class)
-            ->add('driveLicence', DriveLicenceType::class);
+            ->add('driveLicence', DriveLicenceType::class)
+            ->add('save', SubmitType::class, array(
+                'attr' => array('class' => 'save')
+            ));
     }
     
     /**

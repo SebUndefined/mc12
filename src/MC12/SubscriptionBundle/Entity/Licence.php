@@ -25,7 +25,7 @@ class Licence
      */
     private $id;
     /**
-     * @ORM\Column(name="type", type="string", length=255, nullable=false)
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
      */
     private $type;
 
