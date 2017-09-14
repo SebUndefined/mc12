@@ -230,41 +230,51 @@
             </div>
         </li>
         <li class="step">
-            <div class="step-title waves-effect">Club</div>
+            <div class="step-title waves-effect">Club et catégorie</div>
             <div class="step-content">
                 <div class="row">
-                    <div class="col l12">
-                        {# Génération du label. #}
-                        {{ form_label(form.competitor.club.name, "Nom") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.competitor.club.name) }}
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.competitor.club.name, {'attr': {'class': 'validate'}}) }}
+                    <div class="col l6">
+                        <div class="col l12">
+                            {# Génération du label. #}
+                            {{ form_label(form.competitor.club.name, "Nom") }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.competitor.club.name) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.competitor.club.name, {'attr': {'class': 'validate'}}) }}
+                        </div>
+                        <div class="col l12">
+                            {# Génération du label. #}
+                            {{ form_label(form.competitor.club.region, "Région") }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.competitor.club.region) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.competitor.club.region, {'attr': {'class': 'validate'}}) }}
+                        </div>
+                        <div class="col l12">
+                            {# Génération du label. #}
+                            {{ form_label(form.competitor.club.country, "Pays") }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(form.competitor.club.country) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(form.competitor.club.country, {'attr': {'class': 'validate'}}) }}
+                        </div>
                     </div>
-                    <div class="col l12">
+                    <div class="col l6">
                         {# Génération du label. #}
-                        {{ form_label(form.competitor.club.region, "Région") }}
+                        {{ form_label(form.competitor.category, "Catégorie") }}
                         {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.competitor.club.region) }}
+                        {{ form_errors(form.competitor.category) }}
                         {# Génération de l'input. #}
-                        {{ form_widget(form.competitor.club.region, {'attr': {'class': 'validate'}}) }}
+                        {{ form_widget(form.competitor.category, {'attr': {'class': 'validate'}}) }}
                     </div>
-                    <div class="col l12">
-                        {# Génération du label. #}
-                        {{ form_label(form.competitor.club.country, "Pays") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.competitor.club.country) }}
-                        {# Génération de l'input. #}
-                        {{ form_widget(form.competitor.club.country, {'attr': {'class': 'validate'}}) }}
-                    </div>
-                </div>
-                <div class="step-actions">
-                    <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-                    <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+
                 </div>
             </div>
         </li>
+
     </ul>
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_rest(form) }}
     {{ form_end(form) }}
 
 {% endblock %}

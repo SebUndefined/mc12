@@ -26,7 +26,9 @@ class SubscriptionController extends Controller
         $subscription = new Subscription();
         $subscription->setRace($race);
         $form = $this->get('form.factory')
-            ->createBuilder(SubscriptionType::class, $subscription)->getForm();
+            ->createBuilder(SubscriptionType::class, $subscription, array(
+                'trait_choices' => $race->getCategories()
+            ))->getForm();
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             $session = $request->getSession();

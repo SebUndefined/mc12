@@ -2,16 +2,15 @@
 
 namespace MC12\SubscriptionBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Marking
  *
- * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="MC12\SubscriptionBundle\Repository\CategoryRepository")
+ * @ORM\Table(name="marking")
+ * @ORM\Entity(repositoryClass="MC12\SubscriptionBundle\Repository\MarkingRepository")
  */
-class Category
+class Marking
 {
     /**
      * @var int
@@ -29,20 +28,12 @@ class Category
      */
     private $name;
 
-
     /**
-     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\Competitor", mappedBy="category")
-     */
-    private $competitors;
-
-    /**
-     * Category constructor.
+     * @var string
      *
+     * @ORM\Column(name="color", type="string", length=100, unique=true)
      */
-    public function __construct()
-    {
-        $this->competitors = new ArrayCollection();
-    }
+    private $color;
 
 
     /**
@@ -60,7 +51,7 @@ class Category
      *
      * @param string $name
      *
-     * @return Category
+     * @return Marking
      */
     public function setName($name)
     {
@@ -79,5 +70,28 @@ class Category
         return $this->name;
     }
 
+    /**
+     * Set color
+     *
+     * @param string $color
+     *
+     * @return Marking
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
 }
 

@@ -2,7 +2,9 @@
 
 namespace MC12\SubscriptionBundle\Form;
 
+use MC12\SubscriptionBundle\Entity\Race;
 use function Sodium\add;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -20,6 +22,7 @@ class CompetitorType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->traitChoices = $options['trait_choices'];
         $builder
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
@@ -44,9 +47,14 @@ class CompetitorType extends AbstractType
             ->add('motorbike', MotorbikeType::class)
             ->add('club', ClubType::class)
             ->add('driveLicence', DriveLicenceType::class)
-            ->add('save', SubmitType::class, array(
-                'attr' => array('class' => 'save')
+            ->add('category', EntityType::class, array(
+                'class'     => 'MC12\SubscriptionBundle\Entity\Category',
+                'choice_label' => 'name',
+                'choices' => $this->traitChoices,
+                'expanded'  => true,
+                'multiple'  =>false
             ));
+
     }
     
     /**
@@ -55,7 +63,8 @@ class CompetitorType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MC12\SubscriptionBundle\Entity\Competitor'
+            'data_class' => 'MC12\SubscriptionBundle\Entity\Competitor',
+            'trait_choices' => null
         ));
     }
 

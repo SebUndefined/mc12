@@ -14,10 +14,16 @@ $(document).ready(function() {
     });
 
 
+
     //test step
 
     $(function(){
         $('.stepper').activateStepper();
+        $('.select-dropdown').change(function() {
+            alert('prout');
+        });
+        $('select.licenceType').change(function(){ console.log("got you"); });
     });
+
     //Step
 });

@@ -20,6 +20,7 @@ class LicenceType extends AbstractType
             ->add('type', ChoiceType::class, array(
                 'required' => true,
                 'choices' => LicenceTypeEnum::getAvailableTypes(),
+                'attr' => array('class' => 'licenceType'),
                 'choice_label' => function($choice) {
                     return LicenceTypeEnum::getTypeName($choice);
                 }
