@@ -2,6 +2,7 @@
 
 namespace MC12\SubscriptionBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use MC12\SubscriptionBundle\Entity\Competitor;
 use MC12\SubscriptionBundle\Entity\Race;
 use MC12\SubscriptionBundle\Entity\Subscription;
@@ -25,9 +26,18 @@ class SubscriptionController extends Controller
     {
         $subscription = new Subscription();
         $subscription->setRace($race);
+        $stages = $race->getStages();
+        $mealsAvailable = new ArrayCollection();
+        foreach ($stages as $stage) {
+            foreach ($stage->getMeals() as $meal) {
+                $mealsAvailable->add($meal);
+            }
+        }
         $form = $this->get('form.factory')
             ->createBuilder(SubscriptionType::class, $subscription, array(
-                'trait_choices' => $race->getCategories()
+                'trait_choices' => $race->getCategories(),
+                'mealsAvailable' => $mealsAvailable
+
             ))->getForm();
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
@@ -48,7 +58,15 @@ class SubscriptionController extends Controller
             return $this->redirectToRoute('/subscribe/');
         }
         $subscription = $session->get('subscription');
-        die(var_dump($subscription));
+        $subscription->setTotalPrice($subscription->getRace()->getSubscriptionPrice());
+        if ($subscription->getCompetitor()->getLicence()->getType() == "OneDay") {
+            $subscription->setTotalPrice(
+                $subscription->getTotalPrice() +
+                $subscription->getRace()->getOneDayLicencePrice());
+        }
+        return $this->render('MC12SubscriptionBundle:Pages:checkout.html.twig', array(
+            'subscription' =>$subscription,
+        ));
 
     }
 

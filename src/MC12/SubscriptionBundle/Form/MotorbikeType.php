@@ -2,7 +2,9 @@
 
 namespace MC12\SubscriptionBundle\Form;
 
+use MC12\SubscriptionBundle\Entity\MotorBikeBrandEnum;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +16,14 @@ class MotorbikeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('brand')
+            ->add('brand', ChoiceType::class, array(
+                'required' => true,
+                'choices' => MotorBikeBrandEnum::getAvailableTypes(),
+                'attr' => array('class' => 'brandType'),
+                'choice_label' => function($choice) {
+                    return MotorBikeBrandEnum::getTypeName($choice);
+                }
+            ))
             ->add('cylinder')
             ->add('registrationNumber')
             ->add('insurance', InsuranceType::class);

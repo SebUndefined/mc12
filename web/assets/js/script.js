@@ -12,18 +12,30 @@ $(document).ready(function() {
         closeOnSelect: false,
         format: 'dd/mm/yyyy'
     });
+    $('.stepper').activateStepper();
+    $('.select-dropdown').change(function() {
+        alert('prout');
+    });
+    $('#mc12_subscriptionbundle_subscription_competitor_licence_type').change(
+        function(){
+            if (this.value == "OneDay") {
+                $('#mc12_subscriptionbundle_subscription_competitor_licence_number').val('').hide().next().hide();
+            }
+            else {
+                $('#mc12_subscriptionbundle_subscription_competitor_licence_number').show().next().show();
+            }
 
-
+        });
 
     //test step
 
-    $(function(){
+/*    $(function(){
         $('.stepper').activateStepper();
         $('.select-dropdown').change(function() {
             alert('prout');
         });
         $('select.licenceType').change(function(){ console.log("got you"); });
-    });
+    });*/
 
     //Step
 });

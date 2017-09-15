@@ -3,6 +3,7 @@
 namespace MC12\SubscriptionBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +16,13 @@ class DriveLicenceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('category')
-            ->add('deliveryDate', TextType::class)
+            ->add('deliveryDate', DateType::class, array(
+                'attr' => ['class' => 'datepicker'],
+                'format' => 'dd/MM/yyyy',
+                'input' => 'datetime',
+                'html5' => false,
+                'widget' => 'single_text',
+            ))
             ->add('number');
     }
     

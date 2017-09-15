@@ -266,6 +266,12 @@
                         {{ form_errors(form.competitor.category) }}
                         {# Génération de l'input. #}
                         {{ form_widget(form.competitor.category, {'attr': {'class': 'validate'}}) }}
+                        {# Génération du label. #}
+                        {{ form_label(form.competitor.group, "Group") }}
+                        {# Affichage des erreurs pour ce champ précis. #}
+                        {{ form_errors(form.competitor.group) }}
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.competitor.group, {'attr': {'class': 'validate'}}) }}
                     </div>
 
                 </div>

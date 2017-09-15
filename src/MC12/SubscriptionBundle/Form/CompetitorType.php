@@ -43,6 +43,7 @@ class CompetitorType extends AbstractType
             ->add('nationality', CountryType::class)
             ->add('phone', TextType::class)
             ->add('email', EmailType::class)
+            ->add('group', TextType::class)
             ->add('licence', LicenceType::class)
             ->add('motorbike', MotorbikeType::class)
             ->add('club', ClubType::class)

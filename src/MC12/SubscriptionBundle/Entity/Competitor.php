@@ -98,6 +98,13 @@ class Competitor
     private $email;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="group", type="string", length=10, nullable=true)
+     */
+    private $group;
+
+    /**
      * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Licence", cascade={"persist"})
      */
     private $licence;
@@ -385,7 +392,21 @@ class Competitor
         $this->email = $email;
     }
 
+    /**
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
 
+    /**
+     * @param string $group
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+    }
 
 
     /**

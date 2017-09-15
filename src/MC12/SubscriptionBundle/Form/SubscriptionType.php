@@ -2,7 +2,11 @@
 
 namespace MC12\SubscriptionBundle\Form;
 
+use MC12\SubscriptionBundle\Entity\SubscriptionMeal;
+use MC12\SubscriptionBundle\Repository\MealRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,10 +21,17 @@ class SubscriptionType extends AbstractType
     {
 
         $this->traitChoices = $options['trait_choices'];
+        $this->mealsAvailable = $options['mealsAvailable'];
 
         $builder->add('competitor', CompetitorType::class, array(
             'trait_choices' => $this->traitChoices
-        ))->add('save', SubmitType::class, array(
+        ))
+            ->add('subscriptionMeals', CollectionType::class, array(
+                'entry_type' => SubscriptionMealType::class,
+                'allow_add' => true,
+                'allow_delete' => true
+            ))
+            ->add('save', SubmitType::class, array(
             'attr' => array('class' => 'save')
         ));
     }
@@ -32,7 +43,8 @@ class SubscriptionType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'MC12\SubscriptionBundle\Entity\Subscription',
-            'trait_choices' => null
+            'trait_choices' => null,
+            'mealsAvailable' => null
         ));
     }
 

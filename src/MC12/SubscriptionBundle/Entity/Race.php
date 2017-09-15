@@ -54,9 +54,22 @@ class Race
     private $competitorSize;
 
     /**
+     * @ORM\Column(name="subscriptionPrice", type="decimal")
+     */
+    private $subscriptionPrice;
+    /**
+     * @ORM\Column(name="one_day_licence_price", type="decimal")
+     */
+    private $oneDayLicencePrice;
+
+    /**
      * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\Subscription", mappedBy="race")
      */
     private $subscriptions;
+    /**
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\Stage", mappedBy="race")
+     */
+    private $stages;
 
     /**
      * @ORM\ManyToMany(targetEntity="MC12\SubscriptionBundle\Entity\Category", cascade={"persist"})
@@ -67,6 +80,7 @@ class Race
     {
         $this->subscriptions = new ArrayCollection();
         $this->categories = new ArrayCollection();
+        $this->stages = new ArrayCollection();
     }
     /**
      * Get id
@@ -185,6 +199,39 @@ class Race
     /**
      * @return mixed
      */
+    public function getSubscriptionPrice()
+    {
+        return $this->subscriptionPrice;
+    }
+
+    /**
+     * @param mixed $subscriptionPrice
+     */
+    public function setSubscriptionPrice($subscriptionPrice)
+    {
+        $this->subscriptionPrice = $subscriptionPrice;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOneDayLicencePrice()
+    {
+        return $this->oneDayLicencePrice;
+    }
+
+    /**
+     * @param mixed $oneDayLicencePrice
+     */
+    public function setOneDayLicencePrice($oneDayLicencePrice)
+    {
+        $this->oneDayLicencePrice = $oneDayLicencePrice;
+    }
+
+
+    /**
+     * @return mixed
+     */
     public function getSubscriptions()
     {
         return $this->subscriptions;
@@ -221,6 +268,23 @@ class Race
     {
         return $this->categories;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getStages()
+    {
+        return $this->stages;
+    }
+
+    /**
+     * @param mixed $stages
+     */
+    public function setStages($stages)
+    {
+        $this->stages = $stages;
+    }
+
 
 
 

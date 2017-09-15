@@ -29,7 +29,7 @@ class CategoryMarking
     private $proportion;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category")
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="categoryMarkings")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;

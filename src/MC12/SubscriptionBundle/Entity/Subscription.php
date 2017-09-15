@@ -2,6 +2,7 @@
 
 namespace MC12\SubscriptionBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +23,10 @@ class Subscription
     private $id;
 
     /**
+     * @ORM\Column(name="price", type="decimal")
+     */
+    private $totalPrice;
+    /**
      * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Competitor", cascade={"persist"})
      */
     private $competitor;
@@ -33,6 +38,16 @@ class Subscription
 
 
     /**
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\SubscriptionMeal", mappedBy="subscription")
+     */
+    private $subscriptionMeals;
+
+    public function __construct()
+    {
+        $this->subscriptionMeals = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -40,6 +55,22 @@ class Subscription
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalPrice()
+    {
+        return $this->totalPrice;
+    }
+
+    /**
+     * @param mixed $totalPrice
+     */
+    public function setTotalPrice($totalPrice)
+    {
+        $this->totalPrice = $totalPrice;
     }
 
     /**
@@ -73,6 +104,23 @@ class Subscription
     {
         $this->race = $race;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscriptionMeals()
+    {
+        return $this->subscriptionMeals;
+    }
+
+    /**
+     * @param mixed $subscriptionMeals
+     */
+    public function setSubscriptionMeals($subscriptionMeals)
+    {
+        $this->subscriptionMeals = $subscriptionMeals;
+    }
+
 
 
 }
