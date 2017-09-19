@@ -29,13 +29,13 @@ class CategoryMarking
     private $proportion;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="categoryMarkings")
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="categoryMarkings", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Marking")
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Marking", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $marking;

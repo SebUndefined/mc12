@@ -17,10 +17,12 @@ class MealRepository extends EntityRepository
     public function findAllByRaceId($id)
     {
         return $this->createQueryBuilder('m')
-            ->from('MC12SubscriptionBundle:Meal', 'm')
-            ->join('m.stage', "s")
+            ->from('MC12SubscriptionBundle:Meal', 'meal')
+            ->join('meal.stage', "s")
             ->join('s.race', 'race')
             ->where('race.id = :id')
-            ->setParameter('id', $id);
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
     }
 }

@@ -277,7 +277,25 @@
                 </div>
             </div>
         </li>
+        <li class="step">
+            <div class="step-title waves-effect">Repas</div>
+            <div class="step-content">
+                <div class="row">
+                    <div class="col l6">
+                        {% for subscriptionMeal in form.subscriptionMeals %}
+                            {# Génération du label. #}
+                            {{ form_label(subscriptionMeal.number) }}
+                            {# Affichage des erreurs pour ce champ précis. #}
+                            {{ form_errors(subscriptionMeal.number) }}
+                            {# Génération de l'input. #}
+                            {{ form_widget(subscriptionMeal.number, {'attr': {'class': 'validate'}}) }}
+                        {% endfor %}
+                    </div>
 
+
+                </div>
+            </div>
+        </li>
     </ul>
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
     {{ form_rest(form) }}

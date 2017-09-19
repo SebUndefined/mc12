@@ -32,13 +32,13 @@ class Subscription
     private $competitor;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Race", inversedBy="subscriptions")
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Race", inversedBy="subscriptions", cascade={"persist"})
      */
     private $race;
 
 
     /**
-     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\SubscriptionMeal", mappedBy="subscription")
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\SubscriptionMeal", mappedBy="subscription", cascade={"persist"})
      */
     private $subscriptionMeals;
 

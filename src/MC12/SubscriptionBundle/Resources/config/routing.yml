@@ -15,4 +15,10 @@ mc12_subscription_checkout:
         { _controller: MC12SubscriptionBundle:Subscription:checkout }
     requirements:
         id: \d+
+mc12_subscription_final:
+    path:   /subscribe/{id}/final
+    defaults:
+        { _controller: MC12SubscriptionBundle:Subscription:final }
+    requirements:
+            id: \d+
 

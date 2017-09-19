@@ -67,14 +67,12 @@
                 <div class="panel_title">
                     <h2>Votre Catégorie</h2>
                 </div>
+                {{ dump(subscription.competitor.category) }}
                 <p>
-                    {{ dump(subscription.competitor.category) }}
-                    Categorie : {{ subscription.competitor.category.name }}<br/>
+                    {#Categorie : {{ subscription.competitor.category.name }}<br/>
                     Tracet : {% for categoryMarking in subscription.competitor.category.categoryMarkings %}
                         {{ categoryMarking.marking.name }}
-                        test
-
-                    {% endfor %}
+                    {% endfor %}#}
                     <br/>
                 </p>
             </div>
@@ -109,9 +107,63 @@
             <div class="panel_title">
                 <h2>Paiement</h2>
             </div>
-            Montant de la commande: {{ subscription.totalPrice }} €
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Intitulé
+                        </th>
+                        <th>
+                            Quantité
+                        </th>
+                        <th>
+                            PU
+                        </th>
+                        <th>
+                            Total
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Inscription à {{ subscription.race.name }}
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            {{ subscription.race.subscriptionPrice }}
+                        </td>
+                        <td>
+                            {{ subscription.race.subscriptionPrice }}
+                        </td>
+                    </tr>
+                    {% for subscriptionMeal in subscription.subscriptionMeals %}
+                        <tr>
+                           <td>
+                               {{ subscriptionMeal.meal.place }}
+                           </td>
+                            <td>
+                                {{ subscriptionMeal.number }}
+                            </td>
+                            <td>
+                                {{ subscriptionMeal.meal.price }}
+                            </td>
+                            <td>
+                                {{ subscriptionMeal.meal.price * subscriptionMeal.number }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>
+                            Total: {{ subscription.totalPrice }} €
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-
+<a href="{{ path('mc12_subscription_final', {'id': subscription.race.id}) }}">Final</a>
 
 {% endblock %}

@@ -21,7 +21,6 @@ class SubscriptionType extends AbstractType
     {
 
         $this->traitChoices = $options['trait_choices'];
-        $this->mealsAvailable = $options['mealsAvailable'];
 
         $builder->add('competitor', CompetitorType::class, array(
             'trait_choices' => $this->traitChoices
@@ -44,7 +43,6 @@ class SubscriptionType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'MC12\SubscriptionBundle\Entity\Subscription',
             'trait_choices' => null,
-            'mealsAvailable' => null
         ));
     }
 

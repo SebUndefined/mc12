@@ -44,7 +44,7 @@ class Meal
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Stage", inversedBy="meals")
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Stage", inversedBy="meals", cascade={"persist"})
      */
     private $stage;
 

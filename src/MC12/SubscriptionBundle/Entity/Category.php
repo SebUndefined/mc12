@@ -31,12 +31,12 @@ class Category
 
 
     /**
-     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\Competitor", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\Competitor", mappedBy="category", fetch="EAGER")
      */
     private $competitors;
 
     /**
-     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\CategoryMarking", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\CategoryMarking", mappedBy="category", fetch="EAGER")
      */
     private $categoryMarkings;
     /**

@@ -123,7 +123,7 @@ class Competitor
     private $driveLicence;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="competitors")
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="competitors", cascade={"persist"})
      */
     private $category;
     /**
