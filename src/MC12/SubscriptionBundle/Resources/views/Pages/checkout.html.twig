@@ -164,6 +164,17 @@
             </table>
         </div>
     </div>
-<a href="{{ path('mc12_subscription_final', {'id': subscription.race.id}) }}">Final</a>
+    <form action="{{ path('mc12_subscription_final', {'id': subscription.race.id}) }}" method="POST">
+        <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_5MXU6aHa9Fg21xKR94SAJEuF"
+                data-amount="{{ subscription.totalPrice * 100 }}"
+                data-name="Paiement"
+                data-description="Vous recevrez un email à l'adresse"
+                data-locale="auto"
+                data-email="{{ subscription.competitor.email }}"
+                data-currency="eur">
+        </script>
+    </form>
 
 {% endblock %}

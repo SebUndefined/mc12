@@ -10,4 +10,13 @@ namespace MC12\SubscriptionBundle\Repository;
  */
 class SubscriptionRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getSusbscriptionBefore(\DateTime $date) {
+        return $this->createQueryBuilder('subscription')
+            ->where('subscription.creationDate <= :date')
+            ->andWhere('subscription.paymentDone = false')
+            ->setParameter('date', $date)
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -72,7 +72,7 @@ class Race
     private $stages;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MC12\SubscriptionBundle\Entity\Category", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="MC12\SubscriptionBundle\Entity\Category")
      */
     private $categories;
 

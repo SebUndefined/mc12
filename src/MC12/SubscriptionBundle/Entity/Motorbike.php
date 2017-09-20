@@ -46,7 +46,7 @@ class Motorbike
     /**
      * @var string
      *
-     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Insurance", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Insurance", cascade={"persist", "remove"})
      */
     private $insurance;
     /**

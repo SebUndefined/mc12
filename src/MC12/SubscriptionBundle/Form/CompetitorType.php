@@ -32,6 +32,7 @@ class CompetitorType extends AbstractType
                 'input' => 'datetime',
                 'html5' => false,
                 'widget' => 'single_text',
+                'required' => false
             ))
             ->add('adressComp', TextType::class, array(
                 'required' => false

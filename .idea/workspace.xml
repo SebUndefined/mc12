@@ -2,20 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e34b8f1e-a54c-46ab-bf57-f3885f8cdaae" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/SubscriptionMealType.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Purger/SusbriptionPurger.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/final.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Stripe/ConfigStripe.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Category.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Category.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/CategoryMarking.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/CategoryMarking.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Competitor.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Competitor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Meal.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Meal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Motorbike.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Motorbike.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Race.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Race.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Subscription.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Subscription.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/SubscriptionMeal.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/SubscriptionMeal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/SubscriptionType.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/SubscriptionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/MealRepository.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/MealRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/CompetitorType.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/CompetitorType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/SubscriptionRepository.php" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/SubscriptionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/config/services.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/checkout.html.twig" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/checkout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/pilot.html.twig" afterPath="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/pilot.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,11 +29,62 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Category.php">
+      <file leaf-file-name="SubscriptionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="40" selection-end-column="30" />
+            <state relative-caret-position="2231">
+              <caret line="100" column="69" lean-forward="false" selection-start-line="100" selection-start-column="69" selection-end-line="100" selection-end-column="69" />
+              <folding>
+                <element signature="e#54#102#0#PHP" expanded="true" />
+                <element signature="e#851#880#1#PHP" expanded="true" />
+                <element signature="e#1315#1344#1#PHP" expanded="true" />
+                <element signature="e#3646#3674#1#PHP" expanded="true" />
+                <element signature="e#3847#3884#1#PHP" expanded="true" />
+                <element signature="e#4282#4310#1#PHP" expanded="true" />
+                <element signature="e#4473#4510#1#PHP" expanded="true" />
+                <element signature="e#5382#5423#1#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubscriptionRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/SubscriptionRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="final.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/final.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Subscription.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Subscription.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+              <folding>
+                <element signature="e#50#98#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigStripe.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Stripe/ConfigStripe.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,55 +93,21 @@
       <file leaf-file-name="checkout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/checkout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="60" column="29" lean-forward="false" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+            <state relative-caret-position="711">
+              <caret line="170" column="55" lean-forward="false" selection-start-line="170" selection-start-column="55" selection-end-line="170" selection-end-column="55" />
               <folding>
-                <element signature="e#6719#6742#0#Twig" expanded="true" />
+                <element signature="e#6728#6751#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Competitor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Competitor.php">
+      <file leaf-file-name="pilot.html.save.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/pilot.html.save.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="125" column="121" lean-forward="false" selection-start-line="125" selection-start-column="121" selection-end-line="125" selection-end-column="121" />
+              <caret line="55" column="52" lean-forward="false" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryMarking.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/CategoryMarking.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="37" column="90" lean-forward="false" selection-start-line="37" selection-start-column="90" selection-end-line="37" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Marking.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Marking.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-69">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubscriptionController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="71" />
-              <folding>
-                <element signature="e#54#102#0#PHP" expanded="true" />
-                <element signature="e#564#593#1#PHP" expanded="true" />
-                <element signature="e#1028#1057#1#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -109,7 +128,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
@@ -118,31 +136,37 @@
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/MotorBike.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/index.html.twig" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/LicenceType.php" />
-        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Motorbike.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Common/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Licence.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/LicenceType.php" />
         <option value="$PROJECT_DIR$/web/assets/js/script.js" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/MotorbikeType.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/MotorBikeBrandEnum.php" />
-        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/CompetitorType.php" />
         <option value="$PROJECT_DIR$/web/assets/css/mc12.css" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/DriveLicenceType.php" />
-        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Race.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Stage.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/MealRepository.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/SubscriptionType.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/SubscriptionMealType.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/pilot.html.twig" />
-        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Subscription.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/SubscriptionMeal.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Meal.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/CategoryMarking.php" />
-        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Competitor.php" />
-        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/checkout.html.twig" />
-        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php" />
         <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Category.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Race.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/CompetitorType.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Purger/SusbriptionPurger.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Competitor.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Motorbike.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Stripe/ConfigStripe.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/checkout.html.twig" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Subscription.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/final.html.twig" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php" />
+        <option value="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/SubscriptionRepository.php" />
       </list>
     </option>
   </component>
@@ -157,10 +181,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="80" />
+    <option name="x" value="81" />
     <option name="y" value="-5" />
-    <option name="width" value="2481" />
-    <option name="height" value="1446" />
+    <option name="width" value="2479" />
+    <option name="height" value="1445" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -178,6 +202,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -553,21 +578,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages" />
       <recent name="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity" />
       <recent name="$PROJECT_DIR$/web/assets/css" />
       <recent name="$PROJECT_DIR$/web/assets/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -675,12 +699,13 @@
       <workItem from="1505398611533" duration="7061000" />
       <workItem from="1505459038533" duration="21249000" />
       <workItem from="1505755202954" duration="1459000" />
-      <workItem from="1505804475426" duration="24110000" />
+      <workItem from="1505804475426" duration="25969000" />
+      <workItem from="1505887582549" duration="10574000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98395000" />
+    <option name="totallyTimeSpent" value="110828000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,14 +717,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="80" y="-5" width="2481" height="1446" extended-state="6" />
+    <frame x="81" y="-5" width="2479" height="1445" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28630534" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2896152" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.44241118" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -711,6 +735,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -725,50 +750,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#54#102#0#PHP" expanded="true" />
-            <element signature="e#564#593#1#PHP" expanded="true" />
-            <element signature="e#1028#1057#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="115">
-            <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/MotorBike.php" />
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -800,22 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Club.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/LicenceTypeEnum.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/js/jquery.steps.min.js" />
     <entry file="file://$PROJECT_DIR$/web/assets/js/jquery.steps.js" />
     <entry file="file://$PROJECT_DIR$/web/assets/js/materialize-stepper.js">
@@ -829,13 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/pilot.html.save.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="73" column="26" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="73" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -880,22 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Insurance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Licence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="27" column="72" lean-forward="false" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Common/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -922,22 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/DriveLicence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Motorbike.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="49" column="7" lean-forward="false" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1002,25 +928,7 @@
         <state relative-caret-position="430">
           <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
-            <element signature="e#48#100#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Race.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/CompetitorType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="33" column="42" lean-forward="false" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-          <folding>
-            <element signature="e#48#88#0#PHP" expanded="true" />
+            <element signature="e#48#100#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1029,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="573">
           <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,7 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="261" column="40" lean-forward="false" selection-start-line="261" selection-start-column="40" selection-end-line="261" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1057,16 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/SubscriptionType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="28" column="60" lean-forward="false" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
-          <folding>
-            <element signature="e#48#100#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/SubscriptionMeal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -1083,66 +979,203 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Subscription.php">
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Club.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="40" column="128" lean-forward="false" selection-start-line="40" selection-start-column="128" selection-end-line="40" selection-end-column="128" />
-          <folding>
-            <element signature="e#50#98#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Marking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
+        <state relative-caret-position="-301">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Competitor.php">
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/DriveLicence.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="125" column="121" lean-forward="false" selection-start-line="125" selection-start-column="121" selection-end-line="125" selection-end-column="121" />
+        <state relative-caret-position="460">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Insurance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Licence.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="27" column="72" lean-forward="false" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/LicenceTypeEnum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Marking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/CategoryMarking.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
+        <state relative-caret-position="851">
           <caret line="37" column="90" lean-forward="false" selection-start-line="37" selection-start-column="90" selection-end-line="37" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="38" column="119" lean-forward="false" selection-start-line="38" selection-start-column="119" selection-end-line="38" selection-end-column="119" />
+          <folding>
+            <element signature="e#50#98#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/SubscriptionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="28" column="60" lean-forward="false" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Purger/SusbriptionPurger.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <folding>
+            <element signature="e#526#563#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Motorbike.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="48" column="106" lean-forward="false" selection-start-line="48" selection-start-column="106" selection-end-line="48" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Competitor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="120" column="109" lean-forward="false" selection-start-line="120" selection-start-column="109" selection-end-line="120" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Form/CompetitorType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Race.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="69" column="90" lean-forward="false" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Stripe/ConfigStripe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/pilot.html.save.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="55" column="52" lean-forward="false" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/checkout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="60" column="29" lean-forward="false" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+        <state relative-caret-position="711">
+          <caret line="170" column="55" lean-forward="false" selection-start-line="170" selection-start-column="55" selection-end-line="170" selection-end-column="55" />
           <folding>
-            <element signature="e#6719#6742#0#Twig" expanded="true" />
+            <element signature="e#6728#6751#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Subscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding>
+            <element signature="e#50#98#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Resources/views/Pages/final.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Controller/SubscriptionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="71" />
+        <state relative-caret-position="2231">
+          <caret line="100" column="69" lean-forward="false" selection-start-line="100" selection-start-column="69" selection-end-line="100" selection-end-column="69" />
           <folding>
             <element signature="e#54#102#0#PHP" expanded="true" />
-            <element signature="e#564#593#1#PHP" expanded="true" />
-            <element signature="e#1028#1057#1#PHP" expanded="true" />
+            <element signature="e#851#880#1#PHP" expanded="true" />
+            <element signature="e#1315#1344#1#PHP" expanded="true" />
+            <element signature="e#3646#3674#1#PHP" expanded="true" />
+            <element signature="e#3847#3884#1#PHP" expanded="true" />
+            <element signature="e#4282#4310#1#PHP" expanded="true" />
+            <element signature="e#4473#4510#1#PHP" expanded="true" />
+            <element signature="e#5382#5423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Entity/Category.php">
+    <entry file="file://$PROJECT_DIR$/src/MC12/SubscriptionBundle/Repository/SubscriptionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="40" selection-end-column="30" />
+        <state relative-caret-position="368">
+          <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
           <folding />
         </state>
       </provider>

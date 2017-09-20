@@ -100,30 +100,30 @@ class Competitor
     /**
      * @var string
      *
-     * @ORM\Column(name="group", type="string", length=10, nullable=true)
+     * @ORM\Column(name="group_pilot", type="string", length=10, nullable=true)
      */
     private $group;
 
     /**
-     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Licence", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Licence", cascade={"persist", "remove"})
      */
     private $licence;
 
     /**
-     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Motorbike", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Motorbike", cascade={"persist", "remove"})
      */
     private $motorbike;
     /**
-     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Club", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\Club", cascade={"persist", "remove"})
      */
     private $club;
     /**
-     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\DriveLicence", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="MC12\SubscriptionBundle\Entity\DriveLicence", cascade={"persist", "remove"})
      */
     private $driveLicence;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="competitors", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="competitors", fetch="EAGER")
      */
     private $category;
     /**

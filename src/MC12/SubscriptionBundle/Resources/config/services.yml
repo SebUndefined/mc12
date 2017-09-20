@@ -1,4 +1,6 @@
 services:
-#    mc12_subscription.example:
-#        class: MC12\SubscriptionBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    mc12_subscription.purger.subscription:
+        class: MC12\SubscriptionBundle\Purger\SusbriptionPurger
+        arguments: ["@doctrine.orm.entity_manager"]
+
+
