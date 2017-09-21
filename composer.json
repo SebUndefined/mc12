@@ -5,7 +5,8 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "MC12\\SubscriptionBundle\\": "src/MC12/SubscriptionBundle"
+            "MC12\\SubscriptionBundle\\": "src/MC12/SubscriptionBundle",
+            "MC12\\AdminBundle\\": "src/MC12/AdminBundle"
         },
         "classmap": [
             "app/AppKernel.php",

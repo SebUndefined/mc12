@@ -1,0 +1,4 @@
+services:
+#    mc12_admin.example:
+#        class: MC12\AdminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
