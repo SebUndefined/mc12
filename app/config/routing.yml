@@ -1,7 +1,18 @@
 mc12_admin:
     resource: "@MC12AdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 mc12_subscription:
     resource: "@MC12SubscriptionBundle/Resources/config/routing.yml"
     prefix:   /
+
+login:
+    path: /login
+    defaults:
+        _controller: MC12UserBundle:Security:login
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout

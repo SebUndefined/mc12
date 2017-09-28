@@ -26,6 +26,15 @@ security:
         main:
             pattern: ^/
             anonymous: true
+        admin:
+            pattern: ^/admin
+            anonymous: false
+            form_login:
+              login_path: /login
+              check_path: /login_check
+            logout:
+              path: logout
+              target: /login
 
 
 
