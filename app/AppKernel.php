@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new MC12\AdminBundle\MC12AdminBundle(),
             new MC12\UserBundle\MC12UserBundle(),
             new MC12\CoreBundle\MC12CoreBundle(),
+            new \FOS\UserBundle\FOSUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

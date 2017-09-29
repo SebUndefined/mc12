@@ -2,8 +2,7 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
-        MC12\UserBundle\Entity\User: plaintext
+        MC12\UserBundle\Entity\User: sha512
 
     role_hierarchy:
         ROLE_ADMIN:    ROLE_USER
@@ -11,11 +10,8 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory:
-              users:
-                user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        main:
+            id: fos_user.user_provider.username
 
 
     firewalls:
@@ -29,12 +25,15 @@ security:
         main:
             pattern: ^/
             anonymous: true
+            provider: main
             form_login:
                 login_path: login
                 check_path: login_check
             logout:
                 path: logout
                 target: login
+            remember_me:
+              secret: '%secret%'
         admin:
             pattern: ^/admin
             anonymous: false
@@ -45,6 +44,6 @@ security:
                 path: logout
                 target: login
     access_control:
-         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/admin, roles: ROLE_USER }
 
 
