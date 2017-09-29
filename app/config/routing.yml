@@ -1,3 +1,7 @@
+mc12_core:
+    resource: "@MC12CoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mc12_admin:
     resource: "@MC12AdminBundle/Resources/config/routing.yml"
     prefix:   /admin

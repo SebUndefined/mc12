@@ -1,22 +1,33 @@
 {# src/MC12/UserBundle/Resources/views/Security/login.html.twig #}
 
-
+{% extends "@MC12Core/mainlayout.html.twig" %}
 {% block body %}
-
-    {# S'il y a une erreur, on l'affiche dans un joli cadre #}
-    {% if error %}
-        <div class="alert alert-danger">{{ error.message }}</div>
-    {% endif %}
-
-    {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
-    <form action="{{ path('login_check') }}" method="post">
-        <label for="username">Login :</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
-
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="_password" />
-        <br />
-        <input type="submit" value="Connexion" />
-    </form>
-
+    <div class="row">
+            <div class="col m6 s12 z-depth-4 offset-m3 card-panel">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.message }}</div>
+                {% endif %}
+                <form action="{{ path('login_check') }}" method="post">
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="username" name="_username" type="text" value="{{ last_username }}">
+                            <label for="username" class="center-align">Username</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">vpn_key</i>
+                            <input id="password" name="_password" type="password">
+                            <label for="password" class="center-align">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light col s12" type="submit" value="Login">login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
 {% endblock %}
