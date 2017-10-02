@@ -1,3 +1,19 @@
 mc12_admin_homepage:
     path:     /
-    defaults: { _controller: MC12AdminBundle:Default:index }
+    defaults: { _controller: MC12AdminBundle:Admin:index }
+mc12_admin_races:
+    path:     /races
+    defaults: { _controller: MC12AdminBundle:Admin:races }
+mc12_admin_add_race:
+    path:     /races/add
+    defaults: { _controller: MC12AdminBundle:Admin:addRace }
+mc12_admin_active_desactive_race:
+    path:     /races/activeordesactive/{id}
+    defaults: { _controller: MC12AdminBundle:Admin:activeOrDesactive }
+    requirements:
+      id: \d+
+mc12_admin_see_race:
+    path:     /races/{id}
+    defaults: { _controller: MC12AdminBundle:Admin:seeRace }
+    requirements:
+      id: \d+

@@ -1,0 +1,75 @@
+{% extends "MC12AdminBundle::nav.html.twig" %}
+
+{% block body %}
+
+<h3>Races</h3>
+    <table>
+        <thead>
+        <tr><th>
+                Nom
+            </th>
+            <th>
+                Date début
+            </th>
+            <th>
+                Date fin
+            </th>
+            <th>
+                Inscription ouverte
+            </th>
+            <th>
+                Place Max
+            </th>
+            <th>
+                Place restance
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for race in races %}
+            <tr>
+                <td>
+                    {{ race.name }}
+                </td>
+                <td>
+                    {{ race.dateBegin |date('d/m/Y') }}
+                </td>
+                <td>
+                    {{ race.dateEnd |date('d/m/Y') }}
+                </td>
+                <td class="center-align">
+                    {% if race.open == true %}
+                        <i class="small material-icons green-text">check_circle</i>
+                    {% else %}
+                        <i class="small material-icons red-text">remove_circle</i>
+                    {% endif %}
+                </td>
+                <td>
+                    {{ race.competitorSize }}
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <a href="{{ path('mc12_admin_see_race', {'id': race.id}) }}"><i class="material-icons">arrow_forward</i></a>
+                    {% if race.open == true %}
+                        <a href="{{ path('mc12_admin_active_desactive_race', {'id': race.id}) }}"><i class="small material-icons red-text">remove_circle</i></a>
+                    {% else %}
+                        <a href="{{ path('mc12_admin_active_desactive_race', {'id': race.id}) }}"><i class="small material-icons green-text">check_circle</i></a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('mc12_admin_add_race') }}"><i class="material-icons">
+                add
+            </i>
+        </a>
+    </div>
+
+{% endblock %}

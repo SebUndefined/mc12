@@ -19,8 +19,6 @@ class SubscriptionController extends Controller
     public function indexAction()
     {
         //Purge of the subscriptions that are not paid and before than 1 day ago
-        $purger = $this->get('mc12_subscription.purger.subscription');
-        $purger->purge(1);
         $repository = $this->getDoctrine()->getManager()->getRepository('MC12SubscriptionBundle:Race');
         $races = $repository->findAll();
         return $this->render('MC12SubscriptionBundle:Pages:index.html.twig', array(
