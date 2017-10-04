@@ -1,0 +1,66 @@
+{% extends 'MC12AdminBundle::nav.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col l6 m6 s12">
+        <div class="panel6">
+            <div class="panel_title">
+                <h5>Compétiteur</h5>
+            </div>
+            <table class="centered bordered">
+                <tbody>
+                    <tr>
+                        <th>Prénom</th>
+                        <td>{{ subscription.competitor.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ subscription.competitor.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de naissance</th>
+                        <td>{{ subscription.competitor.birthdate|date('d/m/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nationalité</th>
+                        <td>{{ subscription.competitor.nationality }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col l6 m6 s12">
+        <div class="panel6">
+            <div class="panel_title">
+                <h5>Contact</h5>
+            </div>
+            <table class="bordered">
+                <tbody>
+                <tr>
+                    <th><i class="material-icons">email</i></th>
+                    <td>{{ subscription.competitor.email }}</td>
+                </tr>
+                <tr>
+                    <th><i class="material-icons">local_phone</i></th>
+                    <td>{{ subscription.competitor.phone }}</td>
+                </tr>
+                <tr>
+                    <th><i class="material-icons">domain</i></th>
+                    <td>
+                        {{ subscription.competitor.adressComp }}<br/>
+                        {{ subscription.competitor.address }}<br/>
+                        {{ subscription.competitor.postalCode }} {{ subscription.competitor.city }}<br/>
+                        {{ subscription.competitor.country }}<br/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+

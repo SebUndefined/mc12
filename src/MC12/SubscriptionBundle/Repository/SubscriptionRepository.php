@@ -19,4 +19,5 @@ class SubscriptionRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getResult();
     }
+
 }

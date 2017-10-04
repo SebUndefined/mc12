@@ -34,7 +34,7 @@ class SubscriptionMeal
     private $subscription;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Meal", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Meal", cascade={"persist"}, inversedBy="mealSubscription")
      */
     private $meal;
 

@@ -1,0 +1,58 @@
+{% extends 'MC12AdminBundle::nav.html.twig' %}
+
+{% block body %}
+
+    <h5>Souscriptions pour {{ race.name }}</h5>
+    <table class="bordered centered">
+        <thead>
+        <tr>
+            <th>Dossier n°</th>
+            <th>Nom Prénom</th>
+            <th>Date de naissance</th>
+            <th>Marque moto</th>
+            <th>Cylindrée</th>
+            <th>Catégorie</th>
+            <th>Club</th>
+            <th>Paiement</th>
+            <th>Validation</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for subscription in subscriptions %}
+            <tr>
+                <td>{{ subscription.id }}</td>
+                <td>{{ subscription.competitor.firstName }} {{ subscription.competitor.lastName }}</td>
+                <td>{{ subscription.competitor.birthdate|date('d/m/Y') }}</td>
+                <td>{{ subscription.competitor.motorbike.brand }}</td>
+                <td>{{ subscription.competitor.motorbike.cylinder }} cm3</td>
+                <td>{{ subscription.competitor.category.name }}</td>
+                <td>{{ subscription.competitor.club.name }}</td>
+                <td>
+                    {% if subscription.paymentDone == true %}
+                        <i class="small material-icons green-text">check_circle</i>
+                    {% else %}
+                        <i class="small material-icons red-text">remove_circle</i>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if subscription.validated == true %}
+                        <i class="small material-icons green-text">check_circle</i>
+                    {% else %}
+                        <i class="small material-icons red-text">remove_circle</i>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('mc12_admin_see_race_subscription_one', {'idRace': race.id, 'idSubscription': subscription.id}) }}">
+                        <i class="material-icons">arrow_forward</i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
+
+

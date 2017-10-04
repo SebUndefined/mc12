@@ -2,6 +2,76 @@
 
 {% block body %}
 
+<h3>{{ race.name }}</h3>
 
+    <div class="row">
+        <div class="col l6 m6 s12">
+            <div class="panel6">
+                <div class="panel_title">
+                    <h5>Information générales</h5>
+                </div>
+                <p>
+                    Nom : {{ race.name }}<br/>
+                    Date début : {{ race.dateBegin|date('d/m/Y') }}<br/>
+                    Date fin : {{ race.dateEnd|date('d/m/Y') }}<br/>
+                    Inscription ouverte ? :
+                    {% if race.open == true %}
+                        Oui
+                    {% else %}
+                        Non
+                    {% endif %}<br/>
+                    Montant inscription : {{ race.subscriptionPrice }} €<br/>
+                    Montant licence : {{ race.oneDayLicencePrice }} €<br/>
+                    Nombre compétiteur : {{ race.competitorSize }}<br/>
+                    Places disponibles :
+                </p>
+            </div>
+        </div>
+        <div class="col l6 m6 s12">
+            <div class="panel6">
+                <div class="panel_title">
+                    <h5>Etapes</h5>
+                </div>
+                <ul class="collapsible" data-collapsible="accordion">
+                    {% for stage in race.stages %}
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">chevron_right</i>
+                            {{ stage.name }}
+                        </div>
+                        <div class="collapsible-body">
+                            <table class="bordered centered">
+                                <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Lieu</th>
+                                    <th>Prix</th>
+                                    <th>Nbr réservation</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for meal in stage.meals %}
+                                    <tr>
+                                        <td>{{ meal.name }}</td>
+                                        <td>{{ meal.place }}</td>
+                                        <td>{{ meal.price }}</td>
+                                        {% set total = 0 %}
+                                        {% for subscriptionMeal in meal.mealSubscription %}
+                                            {% set total = total +  subscriptionMeal.number %}
+                                        {% endfor %}
+                                        <td>{{ total }}</td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

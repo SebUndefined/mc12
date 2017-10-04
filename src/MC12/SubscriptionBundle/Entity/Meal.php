@@ -47,6 +47,11 @@ class Meal
      * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Stage", inversedBy="meals", cascade={"persist"})
      */
     private $stage;
+    /**
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\SubscriptionMeal",
+     *     mappedBy="meal", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $mealSubscription;
 
 
     /**
@@ -138,6 +143,23 @@ class Meal
     {
         $this->stage = $stage;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMealSubscription()
+    {
+        return $this->mealSubscription;
+    }
+
+    /**
+     * @param mixed $mealSubscription
+     */
+    public function setMealSubscription($mealSubscription)
+    {
+        $this->mealSubscription = $mealSubscription;
+    }
+
 
 }
 
