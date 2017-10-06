@@ -58,6 +58,133 @@
         </div>
     </div>
 </div>
+    <div class="row">
+        <div class="col l6 m6 s12">
+            <div class="panel6">
+                <div class="panel_title">
+                    <h5>Moto</h5>
+                </div>
+                <table class="bordered centered">
+                    <tbody>
+                    <tr>
+                        <th>Marque</th>
+                        <td>{{ subscription.competitor.motorbike.brand }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cylindrée</th>
+                        <td>{{ subscription.competitor.motorbike.cylinder }}</td>
+                    </tr>
+                    <tr>
+                        <th>Immatriculation</th>
+                        <td>
+                            {{ subscription.competitor.motorbike.registrationNumber }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Assuré par</th>
+                        <td>
+                            {{ subscription.competitor.motorbike.insurance.insuranceCompanyName }} sous le numéro
+                            {{ subscription.competitor.motorbike.insurance.insuranceRegistrationNumber }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col l6 m6 s12">
+            <div class="panel6">
+                <div class="panel_title">
+                    <h5>Licence</h5>
+                </div>
+                <table class="bordered centered">
+                    <tbody>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{ subscription.competitor.licence.type }}</td>
+                    </tr>
+                    <tr>
+                        <th>Numéro</th>
+                        <td>{{ subscription.competitor.licence.number }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col l6 m6 s12">
+            <div class="panel6">
+                <div class="panel_title">
+                    <h5>Permis de conduire</h5>
+                </div>
+                <table class="bordered centered">
+                    <tbody>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{ subscription.competitor.driveLicence.category }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date d'obtention</th>
+                        <td>{{ subscription.competitor.driveLicence.deliveryDate|date('d/m/Y') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Numéro</th>
+                        <td>{{ subscription.competitor.driveLicence.number }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col l6 m6 s12">
+            <div class="panel6">
+                <div class="panel_title">
+                    <h5>Paiement</h5>
+                </div>
+                <table class="bordered centered">
+                    <tbody>
+                    <tr>
+                        <th>Paiement effectué ?</th>
+                        <td>
+                            {% if subscription.paymentDone == true %}
+                                <i class="small material-icons green-text">check_circle</i>
+                            {% else %}
+                                <i class="small material-icons red-text">remove_circle</i>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Validé ?</th>
+                        <td>
+                            {% if subscription.validated == true %}
+                                <i class="small material-icons green-text">check_circle</i>
+                            {% else %}
+                            <i class="small material-icons red-text">remove_circle</i>
+                                <a class="waves-effect waves-light btn" href="#modalvalidate">
+                                    <i class="material-icons left">
+                                        check_circle
+                                    </i>
+                                    Valider l'inscription
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- Modal Structure -->
+    <div id="modalvalidate" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
 
 
 {% endblock %}

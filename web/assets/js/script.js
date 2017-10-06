@@ -13,6 +13,7 @@ $(document).ready(function() {
         format: 'dd/mm/yyyy'
     });
     $('.stepper').activateStepper();
+    $('.modal-trigger').leanModal();
     $('.select-dropdown').change(function() {
         alert('prout');
     });
