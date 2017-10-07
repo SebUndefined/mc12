@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/mc12.css') }}">
 </head>
 <body>
+    <header class="subscriptionheader valign-wrapper">
+            <h5>Inscription</h5>
+    </header>
     <main>
         <div class="container">
             {% block body %}
@@ -25,5 +28,17 @@
 <script src="{{ asset('assets/js/materialize-stepper.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}" defer></script>
 {# S'il y a une erreur, on l'affiche dans un joli cadre #}
-
+<div>
+    {# On affiche tous les messages flash dont le nom est « info » #}
+    {% for message in app.session.flashbag.get('info') %}
+        <script>
+            Materialize.toast("<i class=\"material-icons\">check_circle</i> {{ message }}", 4000, 'green')
+        </script>
+    {% endfor %}
+    {% for message in app.session.flashbag.get('alert') %}
+        <script>
+            Materialize.toast("<i class=\"material-icons\">error</i> {{ message }}", 4000, 'red')
+        </script>
+    {% endfor %}
+</div>
 </html>

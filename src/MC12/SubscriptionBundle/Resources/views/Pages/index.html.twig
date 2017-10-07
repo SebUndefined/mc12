@@ -3,8 +3,7 @@
 {% block title %}{{ parent() }} - Index{% endblock %}
 
 {% block body %}
-test
-    <table>
+    <table class="bordered centered">
         <thead>
             <tr><th>
                     Nom
@@ -42,7 +41,11 @@ test
                         {{ race.dateEnd |date('d/m/Y') }}
                     </td>
                     <td>
-                        {{ race.open }}
+                        {% if race.open == true %}
+                            <i class="small material-icons green-text">check_circle</i>
+                        {% else %}
+                            <i class="small material-icons red-text">remove_circle</i>
+                        {% endif %}
                     </td>
                     <td>
                         {{ race.competitorSize }}

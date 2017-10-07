@@ -19,12 +19,26 @@
         {% endblock %}
     </div>
 </main>
+
 </body>
+
 <!-- Compiled and minified JavaScript -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
 <script src="{{ asset('assets/js/materialize-stepper.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}" defer></script>
-
+<div>
+    {# On affiche tous les messages flash dont le nom est « info » #}
+    {% for message in app.session.flashbag.get('info') %}
+        <script>
+            Materialize.toast("<i class=\"material-icons\">check_circle</i> {{ message }}", 4000, 'green')
+        </script>
+    {% endfor %}
+    {% for message in app.session.flashbag.get('alert') %}
+        <script>
+            Materialize.toast("<i class=\"material-icons\">error</i> {{ message }}", 4000, 'red')
+        </script>
+    {% endfor %}
+</div>
 </html>

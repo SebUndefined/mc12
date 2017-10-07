@@ -1,3 +1,9 @@
+header.subscriptionheader {
+    min-height: 400px;
+    background-image: url("../img/header1024x680.jpg");
+    background-size: cover;
+}
+
 main {
 
 }

@@ -34,3 +34,6 @@ mc12_admin_validate_race_subscription:
     requirements:
       raceId: \d+
       subscriptionId: \d+
+mc12_admin_user_add:
+    path:   /user/add
+    defaults: {_controller: MC12AdminBundle:Admin:addUser}

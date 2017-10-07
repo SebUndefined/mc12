@@ -9,9 +9,11 @@
 namespace MC12\AdminBundle\Controller;
 
 
+use FOS\UserBundle\Form\Type\RegistrationFormType;
 use MC12\SubscriptionBundle\Entity\Race;
 use MC12\SubscriptionBundle\Entity\Subscription;
 use MC12\SubscriptionBundle\Form\RaceType;
+use MC12\UserBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -42,8 +44,6 @@ class AdminController extends Controller
 
     public function seeRaceAction(Race $race)
     {
-
-
         return $this->render('@MC12Admin/viewRace.html.twig', array(
             'race' => $race
         ));
@@ -83,14 +83,24 @@ class AdminController extends Controller
     /**
      * @param Race $race
      * @param Subscription $subscription
+     * @param Request $request
      * @ParamConverter("race", class="MC12SubscriptionBundle:Race", options={"mapping": {"raceId": "id"}})
      * @ParamConverter("subscription", class="MC12SubscriptionBundle:Subscription", options={"mapping": {"subscriptionId": "id"}})
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function validateRaceSubscriptionAction(Race $race, Subscription $subscription)
+    public function validateRaceSubscriptionAction(Request $request, Race $race, Subscription $subscription)
     {
-        $serviceMailer = $this->get("mc12_core.services.mailer");
-        $serviceMailer->sendEmail($subscription, "Inscription Validée !", "@MC12Admin/validateSubscrEmail.html.twig");
+        if ($subscription->getValidated() == true) {
+            $request->getSession()->getFlashBag()->add('alert', 'Inscription déjà validé');
+        } else {
+            $subscription->setValidated(true);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($race);
+            $em->flush();
+            $serviceMailer = $this->get("mc12_core.services.mailer");
+            $serviceMailer->sendEmail($subscription, "Inscription Validée !", "@MC12Admin/validateSubscrEmail.html.twig");
+            $request->getSession()->getFlashBag()->add('info', 'Inscription validé !');
+        }
         return $this->redirectToRoute('mc12_admin_see_race_subscription_one',
             array(
                 'raceId' =>$race->getId(),
@@ -114,6 +124,16 @@ class AdminController extends Controller
 
 
         return $this->render('@MC12Admin/addRace.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
+
+    public function addUserAction()
+    {
+        $user = new User();
+        $form = $this->get('form.factory')->create(RegistrationFormType::class, $user);
+        var_dump($user);
+        return $this->render('@MC12Admin/addUser.html.twig', array(
             'form' => $form->createView()
         ));
     }

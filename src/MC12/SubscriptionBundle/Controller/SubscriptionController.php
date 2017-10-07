@@ -29,6 +29,7 @@ class SubscriptionController extends Controller
     public function pilotAction(Request $request, Race $race, $id)
     {
         if ($race->getOpen() === false) {
+            $request->getSession()->getFlashBag()->add('alert', 'Inscription impossible à cette course !');
             return $this->redirectToRoute("mc12_subscription_homepage");
         }
         $subscription = new Subscription();
