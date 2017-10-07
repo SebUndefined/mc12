@@ -79,6 +79,24 @@ class AdminController extends Controller
         ));
 
     }
+
+    /**
+     * @param Race $race
+     * @param Subscription $subscription
+     * @ParamConverter("race", class="MC12SubscriptionBundle:Race", options={"mapping": {"raceId": "id"}})
+     * @ParamConverter("subscription", class="MC12SubscriptionBundle:Subscription", options={"mapping": {"subscriptionId": "id"}})
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function validateRaceSubscriptionAction(Race $race, Subscription $subscription)
+    {
+        $serviceMailer = $this->get("mc12_core.services.mailer");
+        $serviceMailer->sendEmail($subscription, "Inscription Validée !", "@MC12Admin/validateSubscrEmail.html.twig");
+        return $this->redirectToRoute('mc12_admin_see_race_subscription_one',
+            array(
+                'raceId' =>$race->getId(),
+                'subscriptionId' => $subscription->getId()
+            ));
+    }
     public function addRaceAction(Request $request)
     {
         $race = new Race();

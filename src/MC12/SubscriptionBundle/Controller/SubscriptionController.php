@@ -28,6 +28,9 @@ class SubscriptionController extends Controller
 
     public function pilotAction(Request $request, Race $race, $id)
     {
+        if ($race->getOpen() === false) {
+            return $this->redirectToRoute("mc12_subscription_homepage");
+        }
         $subscription = new Subscription();
         $subscription->setRace($race);
         $mealsAvailable = $this->getDoctrine()

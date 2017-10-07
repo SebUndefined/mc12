@@ -159,13 +159,8 @@
                             {% if subscription.validated == true %}
                                 <i class="small material-icons green-text">check_circle</i>
                             {% else %}
-                            <i class="small material-icons red-text">remove_circle</i>
-                                <a class="waves-effect waves-light btn" href="#modalvalidate">
-                                    <i class="material-icons left">
-                                        check_circle
-                                    </i>
-                                    Valider l'inscription
-                                </a>
+                                <i class="small material-icons red-text">remove_circle</i><br />
+                                <button data-target="modalvalidate" class="btn modal-trigger">Valider !</button>
                             {% endif %}
                         </td>
                     </tr>
@@ -178,11 +173,12 @@
     <!-- Modal Structure -->
     <div id="modalvalidate" class="modal">
         <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+            <h4>Valider l'inscription</h4>
+            <p>Voulez-vous vraiment valider l'inscription ? Un email de confirmation sera envoyé à la personne concernée.</p>
         </div>
         <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="{{ path('mc12_admin_validate_race_subscription', {'raceId': race.id, 'subscriptionId': subscription.id}) }}" class=" modal-action modal-close waves-effect waves-green btn-flat">Oui, c'est mon dernier mot !</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Laissez moi réfléchir</a>
         </div>
     </div>
 
