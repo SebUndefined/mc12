@@ -30,7 +30,7 @@ class Licence
     private $type;
 
     /**
-     * @ORM\Column(name="number", type="string", length=255)
+     * @ORM\Column(name="number", type="string", length=255, nullable=true)
      */
     private $number;
 

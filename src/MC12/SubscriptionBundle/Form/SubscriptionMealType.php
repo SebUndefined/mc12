@@ -20,7 +20,6 @@ class SubscriptionMealType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $builder->addEventListener(FormEvents::PRE_SET_DATA,
             function (FormEvent $event) use ($builder)
             {
@@ -49,7 +48,7 @@ class SubscriptionMealType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MC12\SubscriptionBundle\Entity\SubscriptionMeal'
+            'data_class' => 'MC12\SubscriptionBundle\Entity\SubscriptionMeal',
         ));
     }
 

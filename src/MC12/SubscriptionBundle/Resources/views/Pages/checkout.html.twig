@@ -67,12 +67,11 @@
                 <div class="panel_title">
                     <h2>Votre Catégorie</h2>
                 </div>
-                {{ dump(subscription.competitor.category) }}
                 <p>
-                    {#Categorie : {{ subscription.competitor.category.name }}<br/>
+                    Categorie : {{ subscription.competitor.category.name }}<br/>
                     Tracet : {% for categoryMarking in subscription.competitor.category.categoryMarkings %}
-                        {{ categoryMarking.marking.name }}
-                    {% endfor %}#}
+                        <span style="background-color: {{ categoryMarking.marking.color }}">{{ categoryMarking.proportion }} %</span>
+                    {% endfor %}
                     <br/>
                 </p>
             </div>

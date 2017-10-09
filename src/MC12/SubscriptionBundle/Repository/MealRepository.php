@@ -18,8 +18,8 @@ class MealRepository extends EntityRepository
     {
         return $this->createQueryBuilder('m')
             ->from('MC12SubscriptionBundle:Meal', 'meal')
-            ->join('meal.stage', "s")
-            ->join('s.race', 'race')
+            ->innerJoin('m.stage', "s")
+            ->innerJoin('s.race', 'race')
             ->where('race.id = :id')
             ->setParameter('id', $id)
             ->getQuery()

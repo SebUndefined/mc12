@@ -37,7 +37,7 @@ class SubscriptionController extends Controller
         $mealsAvailable = $this->getDoctrine()
             ->getManager()
             ->getRepository('MC12SubscriptionBundle:Meal')
-            ->findAllByRaceId($id);
+            ->findAllByRaceId($race->getId());
         $mealsSubscription = new ArrayCollection();
         foreach ($mealsAvailable as $meal) {
             $mealSubscription = new SubscriptionMeal();
@@ -48,8 +48,9 @@ class SubscriptionController extends Controller
         $subscription->setSubscriptionMeals($mealsSubscription);
         $form = $this->get('form.factory')
             ->createBuilder(SubscriptionType::class, $subscription, array(
-                'trait_choices' => $race->getCategories(),
+                'categories' => $race->getCategories(),
             ))->getForm();
+        //die(var_dump($form));
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             $session = $request->getSession();

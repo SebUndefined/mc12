@@ -23,7 +23,7 @@
                     Montant inscription : {{ race.subscriptionPrice }} €<br/>
                     Montant licence : {{ race.oneDayLicencePrice }} €<br/>
                     Nombre compétiteur : {{ race.competitorSize }}<br/>
-                    Places disponibles :
+                    <a href="{{ path('mc12_admin_see_race_subscription', {'id' : race.id}) }}">Voir les souscriptions</a>
                 </p>
             </div>
         </div>

@@ -21,9 +21,6 @@
                 Place Max
             </th>
             <th>
-                Place restance
-            </th>
-            <th>
                 Actions
             </th>
         </tr>
@@ -51,9 +48,6 @@
                     {{ race.competitorSize }}
                 </td>
                 <td>
-
-                </td>
-                <td>
                     <a href="{{ path('mc12_admin_see_race', {'id': race.id}) }}"><i class="material-icons">arrow_forward</i></a>
                     {% if race.open == true %}
                         <a href="{{ path('mc12_admin_active_desactive_race', {'id': race.id}) }}"><i class="small material-icons red-text">remove_circle</i></a>
@@ -71,5 +65,6 @@
             </i>
         </a>
     </div>
+
 
 {% endblock %}

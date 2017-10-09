@@ -19,20 +19,18 @@ class SubscriptionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        $this->traitChoices = $options['trait_choices'];
-
         $builder->add('competitor', CompetitorType::class, array(
-            'trait_choices' => $this->traitChoices
+            'categories' => $options['categories']
         ))
             ->add('subscriptionMeals', CollectionType::class, array(
                 'entry_type' => SubscriptionMealType::class,
-                'allow_add' => true,
-                'allow_delete' => true,
-            ))
+                )
+            )
             ->add('save', SubmitType::class, array(
             'attr' => array('class' => 'save')
         ));
+
+
     }
     
     /**
@@ -42,7 +40,7 @@ class SubscriptionType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'MC12\SubscriptionBundle\Entity\Subscription',
-            'trait_choices' => null,
+            'categories' => null,
         ));
     }
 

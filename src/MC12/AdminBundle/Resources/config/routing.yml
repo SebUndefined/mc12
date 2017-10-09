@@ -7,6 +7,11 @@ mc12_admin_races:
 mc12_admin_add_race:
     path:     /races/add
     defaults: { _controller: MC12AdminBundle:Admin:addRace }
+mc12_admin_edit_race:
+    path:     /races/edit/{id}
+    defaults: { _controller: MC12AdminBundle:Admin:editRace }
+    requirements:
+              id: \d+
 mc12_admin_add_meal:
     path:     /races/{id}/add-meal
     defaults: { _controller: MC12AdminBundle:Admin:addMeal }

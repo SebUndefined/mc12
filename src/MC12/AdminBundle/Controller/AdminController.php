@@ -38,9 +38,8 @@ class AdminController extends Controller
             ->getRepository('MC12SubscriptionBundle:Race');
 
         $races = $repository->findAll();
-
         return $this->render('@MC12Admin/races.html.twig', array(
-            'races' => $races
+            'races' => $races,
         ));
 
     }
@@ -50,10 +49,9 @@ class AdminController extends Controller
         return $this->render('@MC12Admin/viewRace.html.twig', array(
             'race' => $race
         ));
-
     }
 
-    public function seeRaceSubscriptionAction(Race $race)
+    public function seeRaceSubscriptionAction(Race $race, Request $request)
     {
         $repoSubscription = $this->getDoctrine()->getManager()->getRepository('MC12SubscriptionBundle:Subscription');
         $subscription = $repoSubscription->findBy(array('race'=> $race->getId(), 'paymentDone' => true));
@@ -135,7 +133,27 @@ class AdminController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($race);
                 $em->flush();
+                $request->getSession()->getFlashBag()->add('info', 'Course ajoutée !');
                 return $this->redirectToRoute('mc12_admin_homepage');
+            }
+        }
+        return $this->render('@MC12Admin/addRace.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
+    public function editRaceAction(Race $race, Request $request)
+    {
+        $form = $this->get('form.factory')->create(RaceType::class, $race);
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($race);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('info', 'Course modifiée');
+                return $this->redirectToRoute('mc12_admin_see_race', array(
+                   'id' => $race->getId()
+                ));
             }
         }
         return $this->render('@MC12Admin/addRace.html.twig', array(
@@ -161,6 +179,8 @@ class AdminController extends Controller
             'form' => $form->createView()
         ));
     }
+
+
 
 
     public function activeOrDesactiveAction(Race $race)

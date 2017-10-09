@@ -2,6 +2,7 @@
 
 namespace MC12\SubscriptionBundle\Repository;
 
+
 /**
  * SubscriptionRepository
  *
@@ -19,5 +20,6 @@ class SubscriptionRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getResult();
     }
+
 
 }
