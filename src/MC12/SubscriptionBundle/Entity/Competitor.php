@@ -3,6 +3,7 @@
 namespace MC12\SubscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Constraint;
 
 /**
  * Competitor
@@ -39,6 +40,7 @@ class Competitor
      * @var \DateTime
      *
      * @ORM\Column(name="birthDate", type="date")
+     * @Constraint\Date()
      */
     private $birthDate;
 

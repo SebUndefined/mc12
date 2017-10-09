@@ -9,13 +9,14 @@
 namespace MC12\AdminBundle\Controller;
 
 
-use MC12\AdminBundle\Form\RaceType;
 use MC12\AdminBundle\Form\RegistrationType;
 use MC12\SubscriptionBundle\Entity\Meal;
 use MC12\SubscriptionBundle\Entity\Race;
 use MC12\SubscriptionBundle\Entity\Stage;
 use MC12\SubscriptionBundle\Entity\Subscription;
 use MC12\SubscriptionBundle\Form\MealType;
+use MC12\SubscriptionBundle\Form\RaceEditType;
+use MC12\SubscriptionBundle\Form\RaceType;
 use MC12\UserBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -143,7 +144,7 @@ class AdminController extends Controller
     }
     public function editRaceAction(Race $race, Request $request)
     {
-        $form = $this->get('form.factory')->create(RaceType::class, $race);
+        $form = $this->get('form.factory')->create(RaceEditType::class, $race);
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -156,7 +157,7 @@ class AdminController extends Controller
                 ));
             }
         }
-        return $this->render('@MC12Admin/addRace.html.twig', array(
+        return $this->render('@MC12Admin/editRace.html.twig', array(
             'form' => $form->createView()
         ));
     }

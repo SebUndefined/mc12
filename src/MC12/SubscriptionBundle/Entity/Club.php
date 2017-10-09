@@ -3,7 +3,7 @@
 namespace MC12\SubscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Constraint;
 /**
  * Club
  *
@@ -25,13 +25,14 @@ class Club
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Constraint\Length(min=3)
      */
     private $name;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="region", type="string", length=255)
+     * @Constraint\Length(min=5)
      */
     private $region;
 

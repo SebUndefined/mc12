@@ -1,0 +1,59 @@
+{% extends "MC12AdminBundle::nav.html.twig" %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col input-field l6 m6">
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.name) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.name, {'attr': {'class': 'validate'}}) }}
+            {# Génération du label. #}
+            {{ form_label(form.name, "Name") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6 input-field">
+            {# Génération du label. #}
+            {{ form_label(form.competitorSize, "Competitor size") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.competitorSize) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.competitorSize) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6">
+            {{ form_errors(form.open) }}
+            {{ form_widget(form.open) }}
+            {{ form_label(form.open, "Subscription open ?") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6 input-field">
+            {{ form_label(form.subscriptionPrice, "Price per competitor") }}
+            {{ form_errors(form.subscriptionPrice) }}
+            {{ form_widget(form.subscriptionPrice) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6 input-field">
+            {{ form_label(form.oneDayLicencePrice, "One day licence price") }}
+            {{ form_errors(form.oneDayLicencePrice) }}
+            {{ form_widget(form.oneDayLicencePrice) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6">
+            {{ form_label(form.categories, "Category") }}
+            {{ form_errors(form.categories) }}
+            {{ form_widget(form.categories) }}
+        </div>
+    </div>
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}

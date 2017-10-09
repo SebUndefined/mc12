@@ -15,7 +15,7 @@ class DriveLicenceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('category')
+        $builder->add('category', TextType::class)
             ->add('deliveryDate', DateType::class, array(
                 'attr' => ['class' => 'datepicker'],
                 'format' => 'dd/MM/yyyy',
@@ -23,7 +23,7 @@ class DriveLicenceType extends AbstractType
                 'html5' => false,
                 'widget' => 'single_text',
             ))
-            ->add('number');
+            ->add('number', TextType::class);
     }
     
     /**

@@ -29,10 +29,9 @@
                     <div class="col l6 m6">
                         {# Génération du label. #}
                         {{ form_label(form.competitor.birthDate, "Date de naissance") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
-                        {{ form_errors(form.competitor.birthDate) }}
-                        {# Génération de l'input. #}
                         {{ form_widget(form.competitor.birthDate) }}
+                        {{ form_errors(form.competitor.birthDate) }}
+
                     </div>
                     <div class="col l6 m6">
                         {# Génération du label. #}

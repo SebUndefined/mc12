@@ -10,6 +10,7 @@ use MC12\SubscriptionBundle\Form\SubscriptionType;
 use MC12\SubscriptionBundle\Stripe\ConfigStripe;
 use Stripe\Charge;
 use Stripe\Customer;
+use Stripe\Error\Card;
 use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,33 +51,35 @@ class SubscriptionController extends Controller
             ->createBuilder(SubscriptionType::class, $subscription, array(
                 'categories' => $race->getCategories(),
             ))->getForm();
-        //die(var_dump($form));
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
-            $session = $request->getSession();
-            //Setting the price depending of the race price
-            $subscription->setTotalPrice($subscription->getRace()->getSubscriptionPrice());
-            //Checking the licence price
-            if ($subscription->getCompetitor()->getLicence()->getType() == "OneDay") {
-                $subscription->setTotalPrice(
-                    $subscription->getTotalPrice() +
-                    $subscription->getRace()->getOneDayLicencePrice());
-            }
-            //Calculating price of the order
-            foreach ($subscription->getSubscriptionMeals() as $meal) {
-                $price = $meal->getMeal()->getPrice();
-                $subscription->setTotalPrice($subscription->getTotalPrice() + $price * $meal->getNumber());
-            }
-            //Saving the subscription
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subscription);
+            if ($form->isValid()) {
+                $session = $request->getSession();
+                //Setting the price depending of the race price
+                $subscription->setTotalPrice($subscription->getRace()->getSubscriptionPrice());
+                //Checking the licence price
+                if ($subscription->getCompetitor()->getLicence()->getType() == "OneDay") {
+                    $subscription->setTotalPrice(
+                        $subscription->getTotalPrice() +
+                        $subscription->getRace()->getOneDayLicencePrice());
+                }
+                //Calculating price of the order
+                foreach ($subscription->getSubscriptionMeals() as $meal) {
+                    $price = $meal->getMeal()->getPrice();
+                    $subscription->setTotalPrice($subscription->getTotalPrice() + $price * $meal->getNumber());
+                }
+                //Saving the subscription
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($subscription);
 
-            $entityManager->flush();
-            //set the Id in session
-            $session->set("subscriptionId", $subscription->getId());
-            return $this->redirectToRoute('mc12_subscription_checkout', array(
-                'id' => $race->getId()
-            ));
+                $entityManager->flush();
+                //set the Id in session
+                $session->set("subscriptionId", $subscription->getId());
+                return $this->redirectToRoute('mc12_subscription_checkout', array(
+                    'id' => $race->getId()
+                ));
+            }
+
         }
         return $this->render('MC12SubscriptionBundle:Pages:pilot.html.twig', array(
             'form' => $form->createView()
@@ -121,15 +124,19 @@ class SubscriptionController extends Controller
                 'amount' => $subscription->getTotalPrice() * 100,
                 'currency' => 'eur'
             ));
-            //$serviceMail = $this->get("seb_undefined_shop.services.mailer");
+            $serviceMail = $this->get("mc12_core.services.mailer");
             $subscription->setPaymentDone(true);
             $em->flush();
-            //$serviceMail->sendEmail($order);
+            $serviceMail->sendEmail($subscription, "Commande confirmée !", '@MC12Subscription/Pages/validateOrderEmail.html.twig');
             $request->getSession()->remove("subscriptionId");
             return $this->render('@MC12Subscription/Pages/final.html.twig');
         }catch (Card $exception) {
-            return "nope...";
+            return $this->render('@MC12Subscription/Pages/finalErr.html.twig',
+                array(
+                    'error' => $exception
+                ));
         }
+
 
     }
 
