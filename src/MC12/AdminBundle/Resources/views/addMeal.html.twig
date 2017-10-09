@@ -1,0 +1,51 @@
+{% extends 'MC12AdminBundle::nav.html.twig' %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    <div class="row">
+    <div class="col input-field l6 m6">
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.name) }}
+        {# Génération de l'input. #}
+        {{ form_widget(form.name, {'attr': {'class': 'validate'}}) }}
+        {# Génération du label. #}
+        {{ form_label(form.name, "Name") }}
+    </div>
+    </div>
+    <div class="row">
+        <div class="col input-field l6 m6">
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.place) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.place, {'attr': {'class': 'validate'}}) }}
+            {# Génération du label. #}
+            {{ form_label(form.place, "Lieu (restaurant)") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col input-field l6 m6">
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.price) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.price, {'attr': {'class': 'validate'}}) }}
+            {# Génération du label. #}
+            {{ form_label(form.price, "Prix unitaire") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col input-field l6 m6">
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.stage) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.stage, {'attr': {'class': 'validate'}}) }}
+            {# Génération du label. #}
+            {{ form_label(form.stage, "Etape") }}
+        </div>
+    </div>
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+

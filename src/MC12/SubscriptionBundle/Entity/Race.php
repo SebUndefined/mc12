@@ -67,7 +67,7 @@ class Race
      */
     private $subscriptions;
     /**
-     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\Stage", mappedBy="race")
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\Stage", mappedBy="race", cascade={"persist"})
      */
     private $stages;
 

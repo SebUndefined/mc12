@@ -28,7 +28,7 @@ class SubscriptionType extends AbstractType
             ->add('subscriptionMeals', CollectionType::class, array(
                 'entry_type' => SubscriptionMealType::class,
                 'allow_add' => true,
-                'allow_delete' => true
+                'allow_delete' => true,
             ))
             ->add('save', SubmitType::class, array(
             'attr' => array('class' => 'save')

@@ -9,10 +9,13 @@
 namespace MC12\AdminBundle\Controller;
 
 
-use FOS\UserBundle\Form\Type\RegistrationFormType;
+use MC12\AdminBundle\Form\RaceType;
+use MC12\AdminBundle\Form\RegistrationType;
+use MC12\SubscriptionBundle\Entity\Meal;
 use MC12\SubscriptionBundle\Entity\Race;
+use MC12\SubscriptionBundle\Entity\Stage;
 use MC12\SubscriptionBundle\Entity\Subscription;
-use MC12\SubscriptionBundle\Form\RaceType;
+use MC12\SubscriptionBundle\Form\MealType;
 use MC12\UserBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -115,24 +118,45 @@ class AdminController extends Controller
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             if ($form->isValid()) {
+                $startDate = $race->getDateBegin();
+                $endDate = $race->getDateEnd()->modify('+1 day');
+                $intervalDate = \DateInterval::createFromDateString('1 day');
+                $racePeriod = new \DatePeriod($startDate, $intervalDate, $endDate);
+                $i = 1;
+                foreach ($racePeriod as $dt) {
+                    $stage = new Stage();
+                    $stage->setBeginDate($dt);
+                    $stage->setEndDate($dt);
+                    $stage->setName('Jour ' . $i);
+                    $stage->setRace($race);
+                    $race->getStages()->add($stage);
+                    $i++;
+                }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($race);
                 $em->flush();
                 return $this->redirectToRoute('mc12_admin_homepage');
             }
         }
-
-
         return $this->render('@MC12Admin/addRace.html.twig', array(
             'form' => $form->createView()
         ));
     }
 
-    public function addUserAction()
+    public function addUserAction(Request $request)
     {
         $user = new User();
-        $form = $this->get('form.factory')->create(RegistrationFormType::class, $user);
-        var_dump($user);
+        $form = $this->get('form.factory')->create(RegistrationType::class, $user);
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $userManager = $this->get('fos_user.user_manager');
+                $user->setEnabled(true);
+                $userManager->updateUser($user);
+                $request->getSession()->getFlashBag()->add('info', 'Utilisateur ajouté');
+                return $this->redirectToRoute('mc12_admin_user');
+            }
+        }
         return $this->render('@MC12Admin/addUser.html.twig', array(
             'form' => $form->createView()
         ));
@@ -151,6 +175,44 @@ class AdminController extends Controller
         $em->persist($race);
         $em->flush();
         return $this->redirectToRoute('mc12_admin_races');
+    }
+
+    public function addMealAction(Race $race, Request $request)
+    {
+        $meal = new Meal();
+        $form = $this->createForm(MealType::class, $meal, array(
+            'stage' => $race->getStages(),
+        ));
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($meal);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('info', 'Repas ajouté !');
+                return $this->redirectToRoute('mc12_admin_see_race', array(
+                    'id' => $race->getId()
+                ));
+            }
+        }
+        return $this->render('@MC12Admin/addMeal.html.twig', array(
+            'form' => $form->createView()
+        ));
+
+    }
+
+
+    public function UserAction()
+    {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('MC12UserBundle:User');
+
+        $users = $repository->findAll();
+
+        return $this->render('@MC12Admin/user.html.twig', array(
+            'users' => $users
+        ));
     }
 
 }

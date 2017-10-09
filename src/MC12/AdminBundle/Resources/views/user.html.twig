@@ -1,0 +1,47 @@
+{% extends 'MC12AdminBundle::nav.html.twig' %}
+
+{% block body %}
+
+    <h3>Races</h3>
+    <table>
+        <thead>
+        <tr><th>
+                Username
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Droits
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>
+                    {{ user.username }}
+                </td>
+                <td>
+                    {{ user.email }}
+                </td>
+                <td>
+                    {% for role in user.roles %}
+                        <span>{{ role }}</span>,
+                    {% endfor %}
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('mc12_admin_user_add') }}"><i class="material-icons">
+                add
+            </i>
+        </a>
+    </div>
+
+{% endblock %}
+
+

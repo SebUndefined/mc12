@@ -7,6 +7,11 @@ mc12_admin_races:
 mc12_admin_add_race:
     path:     /races/add
     defaults: { _controller: MC12AdminBundle:Admin:addRace }
+mc12_admin_add_meal:
+    path:     /races/{id}/add-meal
+    defaults: { _controller: MC12AdminBundle:Admin:addMeal }
+    requirements:
+          id: \d+
 mc12_admin_active_desactive_race:
     path:     /races/activeordesactive/{id}
     defaults: { _controller: MC12AdminBundle:Admin:activeOrDesactive }
@@ -37,3 +42,6 @@ mc12_admin_validate_race_subscription:
 mc12_admin_user_add:
     path:   /user/add
     defaults: {_controller: MC12AdminBundle:Admin:addUser}
+mc12_admin_user:
+    path:   /user
+    defaults: {_controller: MC12AdminBundle:Admin:User}
