@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MC12CoreBundle:Default:index.html.twig');
+        return $this->redirectToRoute("mc12_subscription_homepage");
     }
 }

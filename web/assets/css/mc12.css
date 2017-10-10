@@ -2,8 +2,15 @@ header.subscriptionheader {
     min-height: 400px;
     background-image: url("../img/header1024x680.jpg");
     background-size: cover;
+    width: 100%;
 }
-
+div.title {
+    width: 100%;!important;
+}
+div.title > h5{
+    font-weight: bold;
+    font-size: 2em;
+}
 main {
 
 }

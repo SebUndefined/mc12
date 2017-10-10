@@ -1,7 +1,50 @@
 {% extends 'MC12AdminBundle::nav.html.twig' %}
 
 {% block body %}
-    {{ form(form) }}
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col l6 m6">
+            {# Génération du label. #}
+            {{ form_label(form.email, "Email") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.email) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.email) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6">
+            {# Génération du label. #}
+            {{ form_label(form.username, "Username") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.username) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.username) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6">
+            {# Génération du label. #}
+            {{ form_label(form.plainPassword.first, "Mot de passe") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.plainPassword.first) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.plainPassword.first) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l6 m6">
+            {# Génération du label. #}
+            {{ form_label(form.plainPassword.second, "Mot de passe (confirmation)") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.plainPassword.second) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.plainPassword.second) }}
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    {{ form_widget(form.submit, {'attr': {'class': 'btn waves-effect waves-light'}}) }}
+    {{ form_end(form) }}
 
 {% endblock %}
 

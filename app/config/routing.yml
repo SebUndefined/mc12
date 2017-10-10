@@ -10,13 +10,9 @@ mc12_subscription:
     resource: "@MC12SubscriptionBundle/Resources/config/routing.yml"
     prefix:   /
 
-login:
-    path: /login
-    defaults:
-        _controller: MC12UserBundle:Security:login
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-login_check:
-    path: /login_check
-
-logout:
-    path: /logout
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
