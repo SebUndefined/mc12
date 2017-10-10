@@ -5,7 +5,7 @@
 {% block body %}
 
     {{ form_start(form) }}
-    <ul class="stepper">
+    <ul class="stepper linear">
         <li class="step active">
             <div class="step-title waves-effect" data-step-label="Informations générales">Pilote</div>
             <div class="step-content">
@@ -210,7 +210,7 @@
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.driveLicence.deliveryDate) }}
                             {# Génération de l'input. #}
-                            {{ form_widget(form.competitor.driveLicence.deliveryDate, {'attr': {'class': 'validate datepicker'}}) }}
+                            {{ form_widget(form.competitor.driveLicence.deliveryDate, {'attr': {'class': 'datepicker'}}) }}
                         </div>
                         <div class="col l12">
                             {# Génération du label. #}
@@ -273,6 +273,10 @@
                         {{ form_widget(form.competitor.group, {'attr': {'class': 'validate'}}) }}
                     </div>
 
+                </div>
+                <div class="step-actions">
+                    <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                    <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                 </div>
             </div>
         </li>
