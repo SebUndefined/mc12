@@ -9,14 +9,17 @@
 namespace MC12\AdminBundle\Controller;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use MC12\AdminBundle\Form\RegistrationType;
 use MC12\SubscriptionBundle\Entity\Meal;
 use MC12\SubscriptionBundle\Entity\Race;
 use MC12\SubscriptionBundle\Entity\Stage;
 use MC12\SubscriptionBundle\Entity\Subscription;
+use MC12\SubscriptionBundle\Entity\SubscriptionMeal;
 use MC12\SubscriptionBundle\Form\MealType;
 use MC12\SubscriptionBundle\Form\RaceEditType;
 use MC12\SubscriptionBundle\Form\RaceType;
+use MC12\SubscriptionBundle\Form\SubscriptionType;
 use MC12\UserBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -78,6 +81,40 @@ class AdminController extends Controller
         return $this->render('@MC12Admin/viewRaceSubscrOne.html.twig', array(
             'subscription' => $subscription,
             'race' => $race
+        ));
+
+    }
+
+    /**
+     * @param Request $request
+     * @param Race $race
+     * @param Subscription $subscription
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @ParamConverter("race", class="MC12SubscriptionBundle:Race", options={"mapping": {"raceId": "id"}})
+     * @ParamConverter("subscription", class="MC12SubscriptionBundle:Subscription", options={"mapping": {"subscriptionId": "id"}})
+     */
+    public function seeRaceSubscriptionOneEditAction(Request $request, Race $race, Subscription $subscription)
+    {
+        $form = $this->get('form.factory')
+            ->createBuilder(SubscriptionType::class, $subscription, array(
+                'categories' => $race->getCategories(),
+            ))->getForm();
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($subscription);
+
+                $entityManager->flush();
+                //set the Id in session
+                return $this->redirectToRoute('mc12_admin_see_race_subscription_one', array(
+                    'raceId' => $subscription->getRace()->getId(),
+                    'subscriptionId' => $subscription->getId()
+                ));
+            }
+        }
+        return $this->render('MC12SubscriptionBundle:Pages:pilot.html.twig', array(
+            'form' => $form->createView()
         ));
 
     }

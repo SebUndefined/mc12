@@ -46,6 +46,9 @@
                     <a href="{{ path('mc12_admin_see_race_subscription_one', {'raceId': race.id, 'subscriptionId': subscription.id}) }}">
                         <i class="material-icons">arrow_forward</i>
                     </a>
+                    <a href="{{ path('mc12_admin_see_race_subscription_one_edit', {'raceId': race.id, 'subscriptionId': subscription.id}) }}">
+                    <i class="small material-icons green-text">edit</i>
+                    </a>
                 </td>
             </tr>
         {% endfor %}

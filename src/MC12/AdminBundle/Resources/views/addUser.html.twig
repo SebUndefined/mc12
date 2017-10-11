@@ -3,7 +3,7 @@
 {% block body %}
     {{ form_start(form) }}
     <div class="row">
-        <div class="col l6 m6">
+        <div class="col input-field l6 m12 s12">
             {# Génération du label. #}
             {{ form_label(form.email, "Email") }}
             {# Affichage des erreurs pour ce champ précis. #}
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6">
+        <div class="col input-field l6 m12 s12">
             {# Génération du label. #}
             {{ form_label(form.username, "Username") }}
             {# Affichage des erreurs pour ce champ précis. #}
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6">
+        <div class="col input-field l6 m12 s12">
             {# Génération du label. #}
             {{ form_label(form.plainPassword.first, "Mot de passe") }}
             {# Affichage des erreurs pour ce champ précis. #}
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6">
+        <div class="col input-field l6 m12 s12">
             {# Génération du label. #}
             {{ form_label(form.plainPassword.second, "Mot de passe (confirmation)") }}
             {# Affichage des erreurs pour ce champ précis. #}

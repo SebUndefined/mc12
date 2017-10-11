@@ -3,6 +3,7 @@
 namespace MC12\SubscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Constraint;
 
 /**
  * Motorbike
@@ -32,6 +33,10 @@ class Motorbike
      * @var int
      *
      * @ORM\Column(name="cylinder", type="integer")
+     * @Constraint\Range(min="49",
+     *     max="500",
+     *     minMessage="La cylindrée doit être d'au moin 49",
+     *     maxMessage="La cylindrée ne peut être supérieure à 500")
      */
     private $cylinder;
 

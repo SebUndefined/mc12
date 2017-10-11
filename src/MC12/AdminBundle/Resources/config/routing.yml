@@ -38,6 +38,12 @@ mc12_admin_see_race_subscription_one:
     requirements:
       raceId: \d+
       subscriptionId: \d+
+mc12_admin_see_race_subscription_one_edit:
+    path:     /races/{raceId}/subscription/{subscriptionId}/edit
+    defaults: { _controller: MC12AdminBundle:Admin:seeRaceSubscriptionOneEdit }
+    requirements:
+      raceId: \d+
+      subscriptionId: \d+
 mc12_admin_validate_race_subscription:
     path:     /races/{raceId}/subscription/{subscriptionId}/validate
     defaults: { _controller: MC12AdminBundle:Admin:validateRaceSubscription }

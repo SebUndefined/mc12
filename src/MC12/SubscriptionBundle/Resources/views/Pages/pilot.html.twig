@@ -10,7 +10,7 @@
             <div class="step-title waves-effect" data-step-label="Informations générales">Pilote</div>
             <div class="step-content">
                 <div class="row">
-                    <div class="col input-field l6 m6">
+                    <div class="col input-field l6 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.firstName) }}
                         {# Génération de l'input. #}
@@ -18,7 +18,7 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.firstName, "Prénom") }}
                     </div>
-                    <div class="col input-field l6 m6">
+                    <div class="col input-field l6 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.lastName) }}
                         {# Génération de l'input. #}
@@ -26,14 +26,14 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.lastName, "Nom") }}
                     </div>
-                    <div class="col l6 m6">
+                    <div class="col l6 m12">
                         {# Génération du label. #}
                         {{ form_label(form.competitor.birthDate, "Date de naissance") }}
                         {{ form_widget(form.competitor.birthDate) }}
                         {{ form_errors(form.competitor.birthDate) }}
 
                     </div>
-                    <div class="col l6 m6">
+                    <div class="col l6 m12">
                         {# Génération du label. #}
                         {{ form_label(form.competitor.nationality, "Nationalité") }}
                         {# Affichage des erreurs pour ce champ précis. #}
@@ -51,7 +51,7 @@
             <div class="step-title waves-effect" data-step-label="Informations de contact">Pilote</div>
             <div class="step-content">
                 <div class="row">
-                    <div class="col input-field l12">
+                    <div class="col input-field l12 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.address) }}
                         {# Génération de l'input. #}
@@ -59,7 +59,7 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.address, "Adresse") }}
                     </div>
-                    <div class="col input-field l12">
+                    <div class="col input-field l12 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.adressComp) }}
                         {# Génération de l'input. #}
@@ -67,7 +67,7 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.adressComp, "Complément") }}
                     </div>
-                    <div class="col input-field l4">
+                    <div class="col input-field l4 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.postalCode) }}
                         {# Génération de l'input. #}
@@ -75,7 +75,7 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.postalCode, "Code Postal") }}
                     </div>
-                    <div class="col input-field l4">
+                    <div class="col input-field l4 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.city) }}
                         {# Génération de l'input. #}
@@ -83,7 +83,7 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.city, "Ville") }}
                     </div>
-                    <div class="col input-field l4">
+                    <div class="col input-field l4 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.country) }}
                         {# Génération de l'input. #}
@@ -91,7 +91,7 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.country, "Pays") }}
                     </div>
-                    <div class="col input-field l6 m6">
+                    <div class="col input-field l6 m6 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.email) }}
                         {# Génération de l'input. #}
@@ -99,7 +99,7 @@
                         {# Génération du label. #}
                         {{ form_label(form.competitor.email, "Email") }}
                     </div>
-                    <div class="col input-field l6 m6">
+                    <div class="col input-field l6 m6 m12">
                         {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.phone) }}
                         {# Génération de l'input. #}
@@ -118,9 +118,9 @@
             <div class="step-title waves-effect" data-step-label="Moto et assurance">Véhicule</div>
             <div class="step-content">
                 <div class="row">
-                    <div class="col m6">
+                    <div class="col l6 m12">
                         <h5>Description</h5>
-                        <div class="col input-field l12">
+                        <div class="col input-field l12 m12">
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.motorbike.brand) }}
                             {# Génération de l'input. #}
@@ -128,7 +128,7 @@
                             {# Génération du label. #}
                             {{ form_label(form.competitor.motorbike.brand, "Marque") }}
                         </div>
-                        <div class="col input-field l12">
+                        <div class="col input-field l12 m12">
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.motorbike.cylinder) }}
                             {# Génération de l'input. #}
@@ -136,7 +136,7 @@
                             {# Génération du label. #}
                             {{ form_label(form.competitor.motorbike.cylinder, "Cylindrée") }}
                         </div>
-                        <div class="col input-field l12">
+                        <div class="col input-field l12 m12">
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.motorbike.registrationNumber) }}
                             {# Génération de l'input. #}
@@ -145,9 +145,9 @@
                             {{ form_label(form.competitor.motorbike.registrationNumber, "Immatriculation") }}
                         </div>
                     </div>
-                    <div class="col m6">
+                    <div class="col m6 m12">
                         <h5>Assurance</h5>
-                        <div class="col input-field l12">
+                        <div class="col input-field l12 m12">
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.motorbike.insurance.insuranceCompanyName) }}
                             {# Génération de l'input. #}
@@ -155,7 +155,7 @@
                             {# Génération du label. #}
                             {{ form_label(form.competitor.motorbike.insurance.insuranceCompanyName, "Nom") }}
                         </div>
-                        <div class="col input-field l12">
+                        <div class="col input-field l12 m12">
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.motorbike.insurance.insuranceRegistrationNumber) }}
                             {# Génération de l'input. #}
@@ -175,9 +175,9 @@
             <div class="step-title waves-effect">Permis et licence</div>
             <div class="step-content">
                 <div class="row">
-                    <div class="col l6">
+                    <div class="col l6 m12">
                         <h5>Licence</h5>
-                        <div class="col input-field l12">
+                        <div class="col input-field l12 m12">
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.licence.type) }}
                             {# Génération de l'input. #}
@@ -185,7 +185,7 @@
                             {# Génération du label. #}
                             {{ form_label(form.competitor.licence.type, "Type") }}
                         </div>
-                        <div class="col input-field l12">
+                        <div class="col input-field l12 m12">
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.licence.number) }}
                             {# Génération de l'input. #}
@@ -194,9 +194,9 @@
                             {{ form_label(form.competitor.licence.number, "Numéro") }}
                         </div>
                     </div>
-                    <div class="col l6">
+                    <div class="col l6 m12">
                         <h5>Permis</h5>
-                        <div class="col l12">
+                        <div class="col l12 m12">
                             {# Génération du label. #}
                             {{ form_label(form.competitor.driveLicence.category, "Catégorie") }}
                             {# Affichage des erreurs pour ce champ précis. #}
@@ -204,7 +204,7 @@
                             {# Génération de l'input. #}
                             {{ form_widget(form.competitor.driveLicence.category, {'attr': {'class': 'validate'}}) }}
                         </div>
-                        <div class="col l12">
+                        <div class="col l12 m12">
                             {# Génération du label. #}
                             {{ form_label(form.competitor.driveLicence.deliveryDate, "Date d'obtention") }}
                             {# Affichage des erreurs pour ce champ précis. #}
@@ -232,8 +232,8 @@
             <div class="step-title waves-effect">Club et catégorie</div>
             <div class="step-content">
                 <div class="row">
-                    <div class="col l6">
-                        <div class="col l12">
+                    <div class="col l6 m12">
+                        <div class="col l12 m12">
                             {# Génération du label. #}
                             {{ form_label(form.competitor.club.name, "Nom") }}
                             {# Affichage des erreurs pour ce champ précis. #}
@@ -241,7 +241,7 @@
                             {# Génération de l'input. #}
                             {{ form_widget(form.competitor.club.name, {'attr': {'class': 'validate'}}) }}
                         </div>
-                        <div class="col l12">
+                        <div class="col l12 m12">
                             {# Génération du label. #}
                             {{ form_label(form.competitor.club.region, "Région") }}
                             {# Affichage des erreurs pour ce champ précis. #}
@@ -249,7 +249,7 @@
                             {# Génération de l'input. #}
                             {{ form_widget(form.competitor.club.region, {'attr': {'class': 'validate'}}) }}
                         </div>
-                        <div class="col l12">
+                        <div class="col l12 m12">
                             {# Génération du label. #}
                             {{ form_label(form.competitor.club.country, "Pays") }}
                             {# Affichage des erreurs pour ce champ précis. #}
@@ -258,7 +258,7 @@
                             {{ form_widget(form.competitor.club.country, {'attr': {'class': 'validate'}}) }}
                         </div>
                     </div>
-                    <div class="col l6">
+                    <div class="col l6 m12">
                         {# Génération du label. #}
                         {{ form_label(form.competitor.category, "Catégorie") }}
                         {# Affichage des erreurs pour ce champ précis. #}
@@ -284,7 +284,7 @@
             <div class="step-title waves-effect">Repas</div>
             <div class="step-content">
                 <div class="row">
-                    <div class="col l6">
+                    <div class="col l6 m12">
                         {% for subscriptionMeal in form.subscriptionMeals %}
                             {# Génération du label. #}
                             {{ form_label(subscriptionMeal.number) }}

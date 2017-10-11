@@ -38,7 +38,6 @@ class Competitor
 
     /**
      * @var \DateTime
-     *
      * @ORM\Column(name="birthDate", type="date")
      * @Constraint\Date()
      */
@@ -96,6 +95,7 @@ class Competitor
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50, nullable=false)
+     * @Constraint\Email()
      */
     private $email;
 

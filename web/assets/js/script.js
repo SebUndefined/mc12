@@ -14,6 +14,7 @@ $(document).ready(function() {
     });
     $('.stepper').activateStepper();
     $('.modal').modal();
+    $(".button-collapse").sideNav();
     $('.tooltipped').tooltip({delay: 4000});
     $('.select-dropdown').change(function() {
         alert('prout');

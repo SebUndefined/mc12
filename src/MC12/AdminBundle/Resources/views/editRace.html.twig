@@ -5,7 +5,7 @@
     {{ form_start(form) }}
 
     <div class="row">
-        <div class="col input-field l6 m6">
+        <div class="col input-field l6 m12 s12">
             {# Affichage des erreurs pour ce champ précis. #}
             {{ form_errors(form.name) }}
             {# Génération de l'input. #}
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6 input-field">
+        <div class="col input-field l6 m12 s12">
             {# Génération du label. #}
             {{ form_label(form.competitorSize, "Competitor size") }}
             {# Affichage des erreurs pour ce champ précis. #}
@@ -25,28 +25,28 @@
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6">
+        <div class="col input-field l6 m12 s12">
             {{ form_errors(form.open) }}
             {{ form_widget(form.open) }}
             {{ form_label(form.open, "Subscription open ?") }}
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6 input-field">
+        <div class="col input-field l6 m12 s12">
             {{ form_label(form.subscriptionPrice, "Price per competitor") }}
             {{ form_errors(form.subscriptionPrice) }}
             {{ form_widget(form.subscriptionPrice) }}
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6 input-field">
+        <div class="col input-field l6 m12 s12">
             {{ form_label(form.oneDayLicencePrice, "One day licence price") }}
             {{ form_errors(form.oneDayLicencePrice) }}
             {{ form_widget(form.oneDayLicencePrice) }}
         </div>
     </div>
     <div class="row">
-        <div class="col l6 m6">
+        <div class="col input-field l6 m12 s12">
             {{ form_label(form.categories, "Category") }}
             {{ form_errors(form.categories) }}
             {{ form_widget(form.categories) }}

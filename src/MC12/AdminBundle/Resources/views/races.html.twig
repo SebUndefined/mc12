@@ -54,6 +54,9 @@
                     {% else %}
                         <a href="{{ path('mc12_admin_active_desactive_race', {'id': race.id}) }}"><i class="small material-icons green-text">check_circle</i></a>
                     {% endif %}
+                    <a href="{{ path('mc12_admin_edit_race', {'id': race.id}) }}">
+                        <i class="small material-icons green-text">edit</i>
+                    </a>
                 </td>
             </tr>
         {% endfor %}

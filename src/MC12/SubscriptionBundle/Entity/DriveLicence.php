@@ -3,6 +3,7 @@
 namespace MC12\SubscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Constraint;
 
 /**
  * DriveLicence
@@ -32,6 +33,7 @@ class DriveLicence
      * @var \DateTime
      *
      * @ORM\Column(name="deliveryDate", type="date")
+     * @Constraint\Date()
      */
     private $deliveryDate;
 
