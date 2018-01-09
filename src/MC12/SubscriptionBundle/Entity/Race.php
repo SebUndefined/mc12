@@ -72,9 +72,10 @@ class Race
     private $stages;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MC12\SubscriptionBundle\Entity\Category")
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\RaceCategory", mappedBy="race", cascade={"persist"}, fetch="EAGER")
      */
     private $categories;
+
 
     public function __construct()
     {
@@ -246,30 +247,6 @@ class Race
     }
 
     /**
-     * @param Category $category
-     */
-    public function addCategory(Category $category)
-    {
-        $this->categories[] = $category;
-    }
-
-    /**
-     * @param Category $category
-     */
-    public function removeCategory(Category $category)
-    {
-        $this->categories->removeElement($category);
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
      * @return mixed
      */
     public function getStages()
@@ -284,6 +261,32 @@ class Race
     {
         $this->stages = $stages;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param mixed $categories
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+    }
+
+    public function getCategoryEntity() {
+        foreach ($this->categories as $raceCategory) {
+
+            $categoryList = new ArrayCollection();
+            $categoryList->add($raceCategory->getCategory());
+        }
+        return $categoryList;
+    }
+
 
 
 

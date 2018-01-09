@@ -125,7 +125,7 @@ class Competitor
     private $driveLicence;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="competitors", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="MC12\SubscriptionBundle\Entity\Category", inversedBy="competitors")
      */
     private $category;
     /**

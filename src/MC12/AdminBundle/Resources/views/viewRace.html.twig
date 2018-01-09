@@ -75,5 +75,33 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col l6 m12 s12">
+            <div class="panel6">
+                <div class="panel_title">
+                    <h5>Categorie(s)</h5>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Categorie</th>
+                        <th>Prix</th>
+                    </tr>
+                    </thead>
+                    {% for category in race.categories %}
+                        <tr>
+                            <td>
+                                {{ category.category.name }}
+                            </td>
+                            <td>
+                                {{ category.price }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <a href="{{ path('mc12_admin_add_category_to_race', {'id': race.id}) }}">Ajouter une catégorie...</a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

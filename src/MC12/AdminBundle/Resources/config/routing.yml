@@ -17,6 +17,11 @@ mc12_admin_add_meal:
     defaults: { _controller: MC12AdminBundle:Admin:addMeal }
     requirements:
           id: \d+
+mc12_admin_add_category_to_race:
+    path:     /races/{id}/add-category
+    defaults: { _controller: MC12AdminBundle:Admin:addCategoryToRace }
+    requirements:
+          id: \d+
 mc12_admin_active_desactive_race:
     path:     /races/activeordesactive/{id}
     defaults: { _controller: MC12AdminBundle:Admin:activeOrDesactive }

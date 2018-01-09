@@ -44,12 +44,6 @@ class RaceType extends AbstractType
             ->add('oneDayLicencePrice', NumberType::class)
             ->add('save', SubmitType::class, array(
                 'attr' => array('class' => 'save')
-            ))
-            ->add('categories', EntityType::class, array(
-                'class' => 'MC12\SubscriptionBundle\Entity\Category',
-                'choice_label' => 'name',
-                'multiple' => true,
-
             ));
     }
     

@@ -5,7 +5,7 @@
 {% block body %}
 
     {{ form_start(form) }}
-    <ul class="stepper linear">
+    <ul class="stepper">
         <li class="step active">
             <div class="step-title waves-effect" data-step-label="Informations générales">Pilote</div>
             <div class="step-content">
@@ -197,11 +197,9 @@
                     <div class="col l6 m12">
                         <h5>Permis</h5>
                         <div class="col l12 m12">
-                            {# Génération du label. #}
+
                             {{ form_label(form.competitor.driveLicence.category, "Catégorie") }}
-                            {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.driveLicence.category) }}
-                            {# Génération de l'input. #}
                             {{ form_widget(form.competitor.driveLicence.category, {'attr': {'class': 'validate'}}) }}
                         </div>
                         <div class="col l12 m12">
@@ -259,18 +257,13 @@
                         </div>
                     </div>
                     <div class="col l6 m12">
-                        {# Génération du label. #}
                         {{ form_label(form.competitor.category, "Catégorie") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.category) }}
-                        {# Génération de l'input. #}
                         {{ form_widget(form.competitor.category, {'attr': {'class': 'validate'}}) }}
-                        {# Génération du label. #}
                         {{ form_label(form.competitor.group, "Group") }}
-                        {# Affichage des erreurs pour ce champ précis. #}
                         {{ form_errors(form.competitor.group) }}
-                        {# Génération de l'input. #}
                         {{ form_widget(form.competitor.group, {'attr': {'class': 'validate'}}) }}
+                        {{ dump(form.competitor.category) }}
                     </div>
 
                 </div>

@@ -65,13 +65,6 @@
             {{ form_widget(form.oneDayLicencePrice) }}
         </div>
     </div>
-    <div class="row">
-        <div class="col input-field l6 m12 s12">
-            {{ form_label(form.categories, "Category") }}
-            {{ form_errors(form.categories) }}
-            {{ form_widget(form.categories) }}
-        </div>
-    </div>
     {{ form_widget(form.save, {'attr': {'class': 'waves-effect waves-light btn'}}) }}
     {{ form_rest(form) }}
     {{ form_end(form) }}

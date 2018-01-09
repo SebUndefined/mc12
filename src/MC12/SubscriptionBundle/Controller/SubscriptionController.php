@@ -27,6 +27,12 @@ class SubscriptionController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @param Race $race
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function pilotAction(Request $request, Race $race, $id)
     {
         if ($race->getOpen() === false) {
@@ -47,22 +53,31 @@ class SubscriptionController extends Controller
             $mealsSubscription->add($mealSubscription);
         }
         $subscription->setSubscriptionMeals($mealsSubscription);
+        //die(var_dump($race->__load()));
+        $raceCategories = $this->getDoctrine()
+        ->getManager()
+        ->getRepository('MC12SubscriptionBundle:RaceCategory')
+        ->findBy(array('race' => $race));
+        $categories = new ArrayCollection();
+        foreach ($raceCategories as $raceCategory) {
+            $categories->add($raceCategory->getCategory());
+        }
         $form = $this->get('form.factory')
             ->createBuilder(SubscriptionType::class, $subscription, array(
-                'categories' => $race->getCategories(),
+                'categories' => $categories,
             ))->getForm();
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $session = $request->getSession();
-                //Setting the price depending of the race price
-                $subscription->setTotalPrice($subscription->getRace()->getSubscriptionPrice());
-                //Checking the licence price
-                if ($subscription->getCompetitor()->getLicence()->getType() == "OneDay") {
-                    $subscription->setTotalPrice(
-                        $subscription->getTotalPrice() +
-                        $subscription->getRace()->getOneDayLicencePrice());
-                }
+                //die(var_dump($subscription->getCompetitor()));
+                //Setting the price depending of the category Price
+                $raceCategory = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('MC12SubscriptionBundle:RaceCategory')
+                    ->findOneBy(array('race' => $race, 'category' => $subscription->getCompetitor()->getCategory()));
+                $subscription->setTotalPrice($raceCategory->getPrice());
+
                 //Calculating price of the order
                 foreach ($subscription->getSubscriptionMeals() as $meal) {
                     $price = $meal->getMeal()->getPrice();
@@ -86,7 +101,7 @@ class SubscriptionController extends Controller
         ));
     }
 
-    public function checkoutAction(Request $request) {
+    public function checkoutAction(Race $race, Request $request) {
         $session = $request->getSession();
         if (!$session->get('subscriptionId')) {
             return $this->redirectToRoute('mc12_subscription_homepage');

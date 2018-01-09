@@ -132,7 +132,8 @@
                             1
                         </td>
                         <td>
-                            {{ subscription.race.subscriptionPrice }}
+                            {{ dump(subscription.competitor.category) }}
+                            {{ subscription.competitor.category.name }}
                         </td>
                         <td>
                             {{ subscription.race.subscriptionPrice }}

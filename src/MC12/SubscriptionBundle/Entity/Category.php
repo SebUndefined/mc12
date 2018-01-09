@@ -39,6 +39,11 @@ class Category
      * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\CategoryMarking", mappedBy="category", fetch="EAGER")
      */
     private $categoryMarkings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MC12\SubscriptionBundle\Entity\RaceCategory", mappedBy="category", fetch="EAGER")
+     */
+    private $raceCategories;
     /**
      * Category constructor.
      *
@@ -47,6 +52,7 @@ class Category
     {
         $this->competitors = new ArrayCollection();
         $this->categoryMarkings = new ArrayCollection();
+        $this->raceCategories = new ArrayCollection();
     }
 
 
@@ -115,6 +121,23 @@ class Category
     {
         $this->categoryMarkings = $categoryMarkings;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRaceCategories()
+    {
+        return $this->raceCategories;
+    }
+
+    /**
+     * @param mixed $raceCategories
+     */
+    public function setRaceCategories($raceCategories)
+    {
+        $this->raceCategories = $raceCategories;
+    }
+
 
 
 }

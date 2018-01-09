@@ -2,17 +2,25 @@
 
 namespace MC12\SubscriptionBundle\Form;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\EntityRepository;
 use MC12\SubscriptionBundle\Entity\Race;
+use MC12\SubscriptionBundle\Entity\RaceCategory;
 use function Sodium\add;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CompetitorType extends AbstractType
@@ -22,6 +30,7 @@ class CompetitorType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //die(var_dump($options['categories']));
         $builder
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
@@ -49,12 +58,16 @@ class CompetitorType extends AbstractType
             ->add('licence', LicenceType::class)
             ->add('motorbike', MotorbikeType::class)
             ->add('club', ClubType::class)
-            ->add('driveLicence', DriveLicenceType::class)
-            ->add('category', EntityType::class, array(
-                'class'     => 'MC12\SubscriptionBundle\Entity\Category',
-                'choice_label' => 'name',
+            ->add('driveLicence', DriveLicenceType::class);
+        $builder
+            ->add('category', ChoiceType::class, array(
                 'choices' => $options['categories'],
-                'expanded'  => true,
+                'choice_label' => function($choice) {
+                    return $choice->getName();
+                },
+                'choice_attr' => function($category, $key, $index) {
+                    return ['class' => 'category_'.strtolower($category->getName())];
+                },
                 'multiple'  =>false
             ));
 

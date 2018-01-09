@@ -13,10 +13,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use MC12\AdminBundle\Form\RegistrationType;
 use MC12\SubscriptionBundle\Entity\Meal;
 use MC12\SubscriptionBundle\Entity\Race;
+use MC12\SubscriptionBundle\Entity\RaceCategory;
 use MC12\SubscriptionBundle\Entity\Stage;
 use MC12\SubscriptionBundle\Entity\Subscription;
 use MC12\SubscriptionBundle\Entity\SubscriptionMeal;
 use MC12\SubscriptionBundle\Form\MealType;
+use MC12\SubscriptionBundle\Form\RaceCategoryType;
 use MC12\SubscriptionBundle\Form\RaceEditType;
 use MC12\SubscriptionBundle\Form\RaceType;
 use MC12\SubscriptionBundle\Form\SubscriptionType;
@@ -257,6 +259,28 @@ class AdminController extends Controller
             'form' => $form->createView()
         ));
 
+    }
+    public function addCategoryToRaceAction(Race $race, Request $request)
+    {
+        $raceCategory = new RaceCategory();
+        $raceCategory->setRace($race);
+        $form = $this->createForm(RaceCategoryType::class, $raceCategory);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($raceCategory);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('info', 'Catégorie ajouté !');
+                return $this->redirectToRoute('mc12_admin_see_race', array(
+                    'id' => $race->getId()
+                ));
+            }
+        }
+        return $this->render('@MC12Admin/addCategorytoRace.html.twig', array(
+            'form' => $form->createView()
+        ));
     }
 
 
