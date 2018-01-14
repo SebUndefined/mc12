@@ -19,6 +19,17 @@ abstract class MotorBikeBrandEnum
     const GASGAS = "Gas-Gas";
     const BETA = "Beta";
     const TRS = "TRS";
+    const ACCOSSATO = "ACCOSSATO";
+    const BSA = "BSA";
+    const BULTACO = "BULTACO";
+    const JOTAGAS = "JOTAGAS";
+    const MONTESA = "MONTESA";
+    const ROKO = "ROKO";
+    const SCORPA = "SCORPA";
+    const SWM = "SWM";
+    const TM = "TM";
+    const VERTIGO = "VERTIGO";
+    const ZUNDAPP = "ZUNDAPP";
 
 
     protected static $brandName = [
@@ -29,6 +40,17 @@ abstract class MotorBikeBrandEnum
         self::GASGAS => 'Gas-Gas',
         self::BETA => 'Beta',
         self::TRS => 'TRS',
+        self::ACCOSSATO => 'ACCOSSATO',
+        self::BSA => 'BSA',
+        self::BULTACO => 'BULTACO',
+        self::JOTAGAS => 'JOTAGAS',
+        self::MONTESA => 'MONTESA',
+        self::ROKO => 'ROKO',
+        self::SCORPA => 'SCORPA',
+        self::SWM => 'SWM',
+        self::TM => 'TM',
+        self::VERTIGO => 'VERTIGO',
+        self::ZUNDAPP => 'ZUNDAPP',
     ];
 
     public static function getTypeName($brandShortName)
@@ -53,6 +75,16 @@ abstract class MotorBikeBrandEnum
             self::GASGAS,
             self::BETA,
             self::TRS,
+            self::ACCOSSATO,
+            self::BULTACO,
+            self::JOTAGAS,
+            self::MONTESA,
+            self::ROKO,
+            self::SCORPA,
+            self::SWM,
+            self::TM,
+            self::VERTIGO,
+            self::ZUNDAPP,
         ];
     }
 }

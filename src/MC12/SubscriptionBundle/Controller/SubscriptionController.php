@@ -57,7 +57,7 @@ class SubscriptionController extends Controller
         $raceCategories = $this->getDoctrine()
         ->getManager()
         ->getRepository('MC12SubscriptionBundle:RaceCategory')
-        ->findBy(array('race' => $race));
+        ->findBy(array('race' => $race, 'available' => true));
         $categories = new ArrayCollection();
         foreach ($raceCategories as $raceCategory) {
             $categories->add($raceCategory->getCategory());

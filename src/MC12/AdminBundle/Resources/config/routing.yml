@@ -61,3 +61,14 @@ mc12_admin_user_add:
 mc12_admin_user:
     path:   /user
     defaults: {_controller: MC12AdminBundle:Admin:User}
+mc12_admin_export_subscriptions_race:
+    path:   /races/{raceId}/subscription/export/
+    defaults: {_controller: MC12AdminBundle:Admin:exportSubscriptionOfRace}
+    requirements:
+        raceId: \d+
+
+mc12_admin_disable_category_race:
+    path:   /races/racecategory/{raceCategory}
+    defaults: {_controller: MC12AdminBundle:Admin:disableCategory}
+    requirements:
+        raceCategory: \d+

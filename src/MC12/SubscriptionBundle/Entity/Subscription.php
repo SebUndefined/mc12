@@ -84,6 +84,9 @@ class Subscription
         return $this->totalPrice;
     }
 
+
+
+
     /**
      * @param mixed $totalPrice
      */
@@ -91,6 +94,7 @@ class Subscription
     {
         $this->totalPrice = $totalPrice;
     }
+
 
     /**
      * @return mixed

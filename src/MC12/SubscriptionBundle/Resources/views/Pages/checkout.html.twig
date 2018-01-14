@@ -69,7 +69,7 @@
                 </div>
                 <p>
                     Categorie : {{ subscription.competitor.category.name }}<br/>
-                    Tracet : {% for categoryMarking in subscription.competitor.category.categoryMarkings %}
+                    Tracé : {% for categoryMarking in subscription.competitor.category.categoryMarkings %}
                         <span style="background-color: {{ categoryMarking.marking.color }}">{{ categoryMarking.proportion }} %</span>
                     {% endfor %}
                     <br/>
@@ -132,8 +132,8 @@
                             1
                         </td>
                         <td>
-                            {{ dump(subscription.competitor.category) }}
-                            {{ subscription.competitor.category.name }}
+
+
                         </td>
                         <td>
                             {{ subscription.race.subscriptionPrice }}

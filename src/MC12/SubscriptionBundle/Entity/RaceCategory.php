@@ -40,6 +40,22 @@ class RaceCategory
      */
     private $price;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="available", type="boolean")
+     */
+    private $available;
+
+    /**
+     * RaceCategory constructor.
+     * @param string $available
+     */
+    public function __construct()
+    {
+        $this->available = false;
+    }
+
 
     /**
      * Get id
@@ -107,5 +123,23 @@ class RaceCategory
     {
         return $this->price;
     }
+
+    /**
+     * @return string
+     */
+    public function getAvailable()
+    {
+        return $this->available;
+    }
+
+    /**
+     * @param string $available
+     */
+    public function setAvailable($available)
+    {
+        $this->available = $available;
+    }
+
+
 }
 

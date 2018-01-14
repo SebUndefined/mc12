@@ -86,6 +86,8 @@
                     <tr>
                         <th>Categorie</th>
                         <th>Prix</th>
+                        <th>Available ?</th>
+                        <th>Disable/Enable</th>
                     </tr>
                     </thead>
                     {% for category in race.categories %}
@@ -95,6 +97,16 @@
                             </td>
                             <td>
                                 {{ category.price }}
+                            </td>
+                            <td>
+                                {% if category.available == true %}
+                                    <i class="small material-icons green-text">check_circle</i>
+                                {% else %}
+                                    <i class="small material-icons red-text">remove_circle</i>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ path('mc12_admin_disable_category_race', {'raceCategory': category.id}) }}">X</a>
                             </td>
                         </tr>
                     {% endfor %}

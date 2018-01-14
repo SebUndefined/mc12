@@ -241,7 +241,7 @@
                         </div>
                         <div class="col l12 m12">
                             {# Génération du label. #}
-                            {{ form_label(form.competitor.club.region, "Région") }}
+                            {{ form_label(form.competitor.club.region, "Ligue") }}
                             {# Affichage des erreurs pour ce champ précis. #}
                             {{ form_errors(form.competitor.club.region) }}
                             {# Génération de l'input. #}
@@ -263,7 +263,6 @@
                         {{ form_label(form.competitor.group, "Group") }}
                         {{ form_errors(form.competitor.group) }}
                         {{ form_widget(form.competitor.group, {'attr': {'class': 'validate'}}) }}
-                        {{ dump(form.competitor.category) }}
                     </div>
 
                 </div>

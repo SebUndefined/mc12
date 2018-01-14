@@ -11,12 +11,14 @@ namespace MC12\AdminBundle\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use MC12\AdminBundle\Form\RegistrationType;
+use MC12\SubscriptionBundle\Entity\Category;
 use MC12\SubscriptionBundle\Entity\Meal;
 use MC12\SubscriptionBundle\Entity\Race;
 use MC12\SubscriptionBundle\Entity\RaceCategory;
 use MC12\SubscriptionBundle\Entity\Stage;
 use MC12\SubscriptionBundle\Entity\Subscription;
 use MC12\SubscriptionBundle\Entity\SubscriptionMeal;
+use MC12\SubscriptionBundle\Form\CategoryType;
 use MC12\SubscriptionBundle\Form\MealType;
 use MC12\SubscriptionBundle\Form\RaceCategoryType;
 use MC12\SubscriptionBundle\Form\RaceEditType;
@@ -27,6 +29,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 
 class AdminController extends Controller
@@ -294,6 +301,96 @@ class AdminController extends Controller
 
         return $this->render('@MC12Admin/user.html.twig', array(
             'users' => $users
+        ));
+    }
+
+    /**
+     * @param Race $race
+     * @return string
+     * @ParamConverter("race", class="MC12SubscriptionBundle:Race", options={"mapping": {"raceId": "id"}})
+     */
+    public function exportSubscriptionOfRaceAction(Race $race) {
+        $repoSubscription = $this->getDoctrine()->getManager()->getRepository('MC12SubscriptionBundle:Subscription');
+        $subscriptions = $repoSubscription->findBy(array('race'=> $race->getId(), 'paymentDone' => true));
+
+        $response = new StreamedResponse();
+        $response->setCallback(function () use ($subscriptions){
+            $handler = fopen('php://output', 'w+');
+            fputcsv($handler,
+                ['id',
+                    'Nom',
+                    'Prénom',
+                    'Date de naissance',
+                    'Complément Adresse',
+                    'Adresse',
+                    'Code Postal',
+                    'Ville',
+                    'Pays',
+                    'Nationalité',
+                    'Tel',
+                    'Email',
+                    'Groupe',
+                    'Licence Type',
+                    'Licence Numéro',
+                    'Marque Moto',
+                    'Cylindré moto',
+                    'Immatriculation',
+                    'Companie assurance',
+                    'Numéro Assurance',
+
+                    ],
+                ";");
+            foreach ($subscriptions as $subscription) {
+                fputcsv($handler,
+                    array(
+                        $subscription->getId(),
+                        $subscription->getCompetitor()->getFirstName(),
+                        $subscription->getCompetitor()->getLastName(),
+                        $subscription->getCompetitor()->getBirthDate()->format('d-m-Y'),
+                        $subscription->getCompetitor()->getAdressComp(),
+                        $subscription->getCompetitor()->getAddress(),
+                        $subscription->getCompetitor()->getPostalCode(),
+                        $subscription->getCompetitor()->getCity(),
+                        $subscription->getCompetitor()->getCountry(),
+                        $subscription->getCompetitor()->getNationality(),
+                        $subscription->getCompetitor()->getPhone(),
+                        $subscription->getCompetitor()->getEmail(),
+                        $subscription->getCompetitor()->getGroup(),
+                        $subscription->getCompetitor()->getLicence()->getType(),
+                        $subscription->getCompetitor()->getLicence()->getNumber(),
+                        $subscription->getCompetitor()->getMotorbike()->getBrand(),
+                        $subscription->getCompetitor()->getMotorbike()->getCylinder(),
+                        $subscription->getCompetitor()->getMotorbike()->getRegistrationNumber(),
+                        $subscription->getCompetitor()->getMotorbike()->getInsurance()->getInsuranceCompanyName(),
+                        $subscription->getCompetitor()->getMotorbike()->getInsurance()->getInsuranceRegistrationNumber(),
+
+                        ),
+                    ";");
+            }
+            fclose($handler);
+
+        });
+        //die(var_dump($subscriptions));
+        $response->setStatusCode(200);
+        $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
+        $response->headers->set('Content-Disposition','attachment; filename="export-users.csv"');
+
+        return $response;
+    }
+
+    public function disableCategoryAction(RaceCategory $raceCategory) {
+
+        if ($raceCategory->getAvailable() === true) {
+            $raceCategory->setAvailable(false);
+        }
+        else {
+            $raceCategory->setAvailable(true);
+        }
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($raceCategory);
+        $em->flush();
+        return $this->redirectToRoute('mc12_admin_see_race', array(
+            'id' =>$raceCategory->getRace()->getId(),
         ));
     }
 
