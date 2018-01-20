@@ -3,6 +3,10 @@
 {% block body %}
 
     <h5>Souscriptions pour {{ race.name }}</h5>
+    <a class="btn-large waves-effect waves-light red" href="{{ path('mc12_admin_export_subscriptions_race', {'raceId': race.id}) }}"><i class="material-icons">
+            import_export
+        </i>
+    </a>
     <table class="bordered centered">
         <thead>
         <tr>
@@ -55,6 +59,13 @@
 
         </tbody>
     </table>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('mc12_admin_see_race_subscription_add', {'id': race.id}) }}"><i class="material-icons">
+                add
+            </i>
+        </a>
+    </div>
+
 
 {% endblock %}
 

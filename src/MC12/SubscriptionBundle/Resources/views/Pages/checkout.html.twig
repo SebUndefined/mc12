@@ -136,7 +136,7 @@
 
                         </td>
                         <td>
-                            {{ subscription.race.subscriptionPrice }}
+                            {{ dump(subscription.competitor.category.raceCategories) }}
                         </td>
                     </tr>
                     {% for subscriptionMeal in subscription.subscriptionMeals %}

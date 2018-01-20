@@ -37,6 +37,11 @@ mc12_admin_see_race_subscription:
     defaults: { _controller: MC12AdminBundle:Admin:seeRaceSubscription }
     requirements:
       id: \d+
+mc12_admin_see_race_subscription_add:
+    path:     /races/{id}/subscription/add
+    defaults: { _controller: MC12AdminBundle:Admin:seeRaceSubscriptionAdd }
+    requirements:
+      id: \d+
 mc12_admin_see_race_subscription_one:
     path:     /races/{raceId}/subscription/{subscriptionId}
     defaults: { _controller: MC12AdminBundle:Admin:seeRaceSubscriptionOne }

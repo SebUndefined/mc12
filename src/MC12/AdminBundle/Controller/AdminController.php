@@ -66,13 +66,94 @@ class AdminController extends Controller
 
     public function seeRaceSubscriptionAction(Race $race, Request $request)
     {
-        $repoSubscription = $this->getDoctrine()->getManager()->getRepository('MC12SubscriptionBundle:Subscription');
-        $subscription = $repoSubscription->findBy(array('race'=> $race->getId(), 'paymentDone' => true));
+	    $repoSubscription = $this->getDoctrine()->getManager()->getRepository('MC12SubscriptionBundle:Subscription');
+	    $param = [];
+	    $param['race'] = $race->getId();
+    	if ($request->query->get('payment') == "false") {
+		    $param['paymentDone'] = false;
+	    }
+
+	    if ($request->query->get('validated') == "false") {
+		    $param['validated'] = false;
+        }
+
+	    $subscription = $repoSubscription->findBy($param);
+
         return $this->render('@MC12Admin/viewRaceSubscr.html.twig', array(
             'subscriptions' => $subscription,
             'race' => $race
         ));
     }
+
+	public function seeRaceSubscriptionAddAction(Request $request, Race $race) {
+		if ($race->getOpen() === false) {
+			$request->getSession()->getFlashBag()->add('alert', 'Inscription impossible à cette course !');
+			return $this->redirectToRoute("mc12_subscription_homepage");
+		}
+		$subscription = new Subscription();
+		$subscription->setRace($race);
+		$mealsAvailable = $this->getDoctrine()
+		                       ->getManager()
+		                       ->getRepository('MC12SubscriptionBundle:Meal')
+		                       ->findAllByRaceId($race->getId());
+		$mealsSubscription = new ArrayCollection();
+		foreach ($mealsAvailable as $meal) {
+			$mealSubscription = new SubscriptionMeal();
+			$mealSubscription->setMeal($meal);
+			$mealSubscription->setSubscription($subscription);
+			$mealsSubscription->add($mealSubscription);
+		}
+		$subscription->setSubscriptionMeals($mealsSubscription);
+		//die(var_dump($race->__load()));
+		$raceCategories = $this->getDoctrine()
+		                       ->getManager()
+		                       ->getRepository('MC12SubscriptionBundle:RaceCategory')
+		                       ->findBy(array('race' => $race, 'available' => true));
+		$categories = new ArrayCollection();
+		foreach ($raceCategories as $raceCategory) {
+			$categories->add($raceCategory->getCategory());
+		}
+		$form = $this->get('form.factory')
+		             ->createBuilder(SubscriptionType::class, $subscription, array(
+			             'categories' => $categories,
+		             ))->getForm();
+		if ($request->isMethod('POST')) {
+			$form->handleRequest($request);
+			if ($form->isValid()) {
+				$session = $request->getSession();
+				//die(var_dump($subscription->getCompetitor()));
+				//Setting the price depending of the category Price
+				$raceCategory = $this->getDoctrine()
+				                     ->getManager()
+				                     ->getRepository('MC12SubscriptionBundle:RaceCategory')
+				                     ->findOneBy(array('race' => $race, 'category' => $subscription->getCompetitor()->getCategory()));
+				$subscription->setTotalPrice($raceCategory->getPrice());
+
+				//Calculating price of the order
+				foreach ($subscription->getSubscriptionMeals() as $meal) {
+					$price = $meal->getMeal()->getPrice();
+					$subscription->setTotalPrice($subscription->getTotalPrice() + $price * $meal->getNumber());
+				}
+				$subscription->setPaymentDone(true);
+				//Saving the subscription
+				$entityManager = $this->getDoctrine()->getManager();
+				$entityManager->persist($subscription);
+
+				$entityManager->flush();
+				//set the Id in session
+				$session->set("subscriptionId", $subscription->getId());
+				return $this->redirectToRoute('mc12_admin_see_race_subscription_one', array(
+					'subscriptionId' => $subscription->getId(),
+					'raceId' => $race->getId()
+
+				));
+			}
+
+		}
+		return $this->render('MC12AdminBundle::pilot.html.twig', array(
+			'form' => $form->createView()
+		));
+	}
 
     /**
      * @Route("/admin/races/{raceId}/subscription/{subscriptionId}")
@@ -104,9 +185,17 @@ class AdminController extends Controller
      */
     public function seeRaceSubscriptionOneEditAction(Request $request, Race $race, Subscription $subscription)
     {
+	    $raceCategories = $this->getDoctrine()
+	                           ->getManager()
+	                           ->getRepository('MC12SubscriptionBundle:RaceCategory')
+	                           ->findBy(array('race' => $race, 'available' => true));
+	    $categories = new ArrayCollection();
+	    foreach ($raceCategories as $raceCategory) {
+		    $categories->add($raceCategory->getCategory());
+	    }
         $form = $this->get('form.factory')
             ->createBuilder(SubscriptionType::class, $subscription, array(
-                'categories' => $race->getCategories(),
+                'categories' => $categories,
             ))->getForm();
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
@@ -122,7 +211,7 @@ class AdminController extends Controller
                 ));
             }
         }
-        return $this->render('MC12SubscriptionBundle:Pages:pilot.html.twig', array(
+        return $this->render('MC12AdminBundle::pilot.html.twig', array(
             'form' => $form->createView()
         ));
 
@@ -311,7 +400,7 @@ class AdminController extends Controller
      */
     public function exportSubscriptionOfRaceAction(Race $race) {
         $repoSubscription = $this->getDoctrine()->getManager()->getRepository('MC12SubscriptionBundle:Subscription');
-        $subscriptions = $repoSubscription->findBy(array('race'=> $race->getId(), 'paymentDone' => true));
+        $subscriptions = $repoSubscription->findBy(array('race'=> $race->getId(), 'paymentDone' => true, 'validated' => true));
 
         $response = new StreamedResponse();
         $response->setCallback(function () use ($subscriptions){

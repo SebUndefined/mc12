@@ -33,7 +33,7 @@ class SubscriptionController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function pilotAction(Request $request, Race $race, $id)
+    public function pilotAction(Request $request, Race $race)
     {
         if ($race->getOpen() === false) {
             $request->getSession()->getFlashBag()->add('alert', 'Inscription impossible à cette course !');

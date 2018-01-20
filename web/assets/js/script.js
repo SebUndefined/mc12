@@ -23,9 +23,14 @@ $(document).ready(function() {
         function(){
             if (this.value == "OneDay") {
                 $('#mc12_subscriptionbundle_subscription_competitor_licence_number').val('').hide().next().hide();
+                $('#mc12_subscriptionbundle_subscription_competitor_licence_number').prop('required',false);;
+                console.log("Test")
+
             }
             else {
                 $('#mc12_subscriptionbundle_subscription_competitor_licence_number').show().next().show();
+                $('#mc12_subscriptionbundle_subscription_competitor_licence_number').prop('required',true);;
+                console.log("Test")
             }
 
         });
