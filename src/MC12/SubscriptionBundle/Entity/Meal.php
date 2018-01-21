@@ -39,7 +39,7 @@ class Meal
     /**
      *
      *
-     * @ORM\Column(name="price", type="decimal", nullable=false)
+     * @ORM\Column(name="price", type="decimal", precision=10, nullable=false)
      */
     private $price;
 

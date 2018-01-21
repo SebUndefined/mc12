@@ -70,7 +70,7 @@
                 <p>
                     Categorie : {{ subscription.competitor.category.name }}<br/>
                     Tracé : {% for categoryMarking in subscription.competitor.category.categoryMarkings %}
-                        <span style="background-color: {{ categoryMarking.marking.color }}">{{ categoryMarking.proportion }} %</span>
+                        <span style="color: {{ categoryMarking.marking.color }}">{{ categoryMarking.proportion }} %</span>/
                     {% endfor %}
                     <br/>
                 </p>

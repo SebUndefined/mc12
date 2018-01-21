@@ -18,6 +18,7 @@ use MC12\SubscriptionBundle\Entity\RaceCategory;
 use MC12\SubscriptionBundle\Entity\Stage;
 use MC12\SubscriptionBundle\Entity\Subscription;
 use MC12\SubscriptionBundle\Entity\SubscriptionMeal;
+use MC12\SubscriptionBundle\Form\CategoryAddType;
 use MC12\SubscriptionBundle\Form\CategoryType;
 use MC12\SubscriptionBundle\Form\MealType;
 use MC12\SubscriptionBundle\Form\RaceCategoryType;
@@ -57,6 +58,17 @@ class AdminController extends Controller
 
     }
 
+	public function seeCategoriesAction() {
+		$repository = $this->getDoctrine()
+		                   ->getManager()
+		                   ->getRepository('MC12SubscriptionBundle:Category');
+
+		$categories = $repository->findAll();
+		return $this->render('@MC12Admin/categories.html.twig', array(
+			'categories' => $categories,
+		));
+	}
+
     public function seeRaceAction(Race $race)
     {
         return $this->render('@MC12Admin/viewRace.html.twig', array(
@@ -71,11 +83,15 @@ class AdminController extends Controller
 	    $param['race'] = $race->getId();
     	if ($request->query->get('payment') == "false") {
 		    $param['paymentDone'] = false;
+	    } else {
+		    $param['paymentDone'] = true;
 	    }
 
-	    if ($request->query->get('validated') == "false") {
+	    if ($request->query->get('validated') == "true") {
+		    $param['validated'] = true;
+        } elseif ($request->query->get('validated') == "false"){
 		    $param['validated'] = false;
-        }
+	    }
 
 	    $subscription = $repoSubscription->findBy($param);
 
@@ -332,6 +348,24 @@ class AdminController extends Controller
         $em->flush();
         return $this->redirectToRoute('mc12_admin_races');
     }
+
+	public function addCategoryAction(Request $request) {
+		$category = new Category();
+		$form = $this->createForm(CategoryAddType::class, $category);
+		if ($request->isMethod('POST')) {
+			$form->handleRequest($request);
+			if ($form->isValid()) {
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($category);
+				$em->flush();
+				$request->getSession()->getFlashBag()->add('info', 'Categorie ajoutée !');
+				return $this->redirectToRoute('mc12_admin_categories');
+			}
+		}
+		return $this->render('@MC12Admin/addCategory.html.twig', array(
+			'form' => $form->createView()
+		));
+	}
 
     public function addMealAction(Race $race, Request $request)
     {

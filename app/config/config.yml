@@ -63,11 +63,15 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: 'smtp'
-    host: 'smtp.gmail.com'
-    username: 'louvreproject4@gmail.com'
+    host: 'web1.sebundefined.fr'
+    username: 'mc12@sebundefined.fr'
     port: '587'
     encryption: 'tls'
-    password: 'Project4/22'
+    password: 'wQmr95!8'
+    stream_options:
+        ssl:
+            verify_peer: false
+            verify_peer_name: false
     spool: { type: memory }
 
 fos_user:

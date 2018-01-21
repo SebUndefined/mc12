@@ -1,0 +1,33 @@
+{% extends "MC12AdminBundle::nav.html.twig" %}
+
+{% block body %}
+
+    <h3>Races</h3>
+    <table>
+        <thead>
+        <tr><th>
+                Nom
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>
+                    {{ categorie.name }}
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="{{ path('mc12_admin_categories_add') }}"><i class="material-icons">
+                add
+            </i>
+        </a>
+    </div>
+
+
+{% endblock %}
+

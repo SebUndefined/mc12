@@ -24,7 +24,7 @@ class Mailer
     }
     public function sendEmail(Subscription $subscription, $subject, $view) {
         $message = new \Swift_Message("Sujet");
-        $message->setFrom("louvreproject4@gmail.com");
+        $message->setFrom("mc12@sebundefined.fr");
         $message->setTo($subscription->getCompetitor()->getEmail());
         $message->setSubject("MC12 -  " .$subject);
         $message->setBody(
@@ -33,6 +33,7 @@ class Mailer
                 array('subscription' => $subscription))
         );
         $message->setContentType('text/html');
+
 
         $this->mailer->send($message);
     }

@@ -33,12 +33,12 @@ abstract class MotorBikeBrandEnum
 
 
     protected static $brandName = [
-      self::YAMAHA => 'Yamaha',
-        self::HONDA => 'Honda',
-        self::FANTIC => 'Fantic',
-        self::SHERCO => 'Sherco',
-        self::GASGAS => 'Gas-Gas',
-        self::BETA => 'Beta',
+      self::YAMAHA => 'YAMAHA',
+        self::HONDA => 'HONDA',
+        self::FANTIC => 'FANTIC',
+        self::SHERCO => 'SHERCO',
+        self::GASGAS => 'GAS-GAS',
+        self::BETA => 'BETA',
         self::TRS => 'TRS',
         self::ACCOSSATO => 'ACCOSSATO',
         self::BSA => 'BSA',
